@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hitorip</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <!-- <a href="/home/top">ひとりっぷ</a> -->
+        <%= link_to("ひとりっぷ", "/home/top") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <!-- <a href="/home/about">ひとりっぷとは</a> -->
+          <%= link_to("ひとりっぷとは", "/home/about") %>
+        </li>
+        <li>
+          <!-- <a href="/posts/new">新規投稿</a> -->
+          <%= link_to("新規投稿", "/posts/new") %>
+        </li>
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>
