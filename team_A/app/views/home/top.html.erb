@@ -1,0 +1,34 @@
+<div class="main top-main">
+  <div class="top-message">
+    <h1>ひとりの時間、を楽しもう</h1>
+    <p>ひとりっぷ、で探そう</p>
+    <%= form_tag("/posts/index", method: "get") do%>
+    <form class="navbar-form navbar-center" role="search">
+      <div class="form-group">
+        <input type="date" name="date" class="form-control">
+        <select name="place" class="form-control">
+          <option value="">場所</option>
+          <option value=""><都心エリア>千代田区・中央区・港区</option>
+          <option value=""><城東エリア>江東区・墨田区・葛飾区・江戸川区</option>
+          <option value=""><上野エリア>台東区・荒川区・足立区</option>
+          <option value=""><池袋エリア>豊島区・文京区・北区・板橋区・練馬区</option>
+          <option value=""><新宿エリア>新宿区・中野区・杉並区</option>
+          <option value=""><渋谷エリア>渋谷区・世田谷区・目黒区</option>
+          <option value=""><品川エリア>品川区・大田区</option>
+        </select>
+        <select name="category" class="form-control">
+          <option value="">カテゴリ</option>
+          <option value="">イベント</option>
+          <option value="">エンタメ</option>
+          <option value="">カフェ</option>
+          <option value="">アート</option>
+          <option value="">リラックス</option>
+          <option value="">その他</option>
+        </select>
+        <!-- <input type="text" class="form-control" placeholder="フリーワード"> -->
+      </div>
+      <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+    </form>
+    <% end %>
+  </div>
+</div>

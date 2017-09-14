@@ -21,4 +21,13 @@ Rails.application.routes.draw do
   get 'user/home' => 'user#home'
   root 'home#home'
 
+  get 'home/top' => 'home#top'
+  get 'home/about' => 'home#about'
+
+  get 'posts/index' => 'posts#index'
+  get 'posts/new' => 'posts#new'
+  get 'posts/:id' => 'posts#show'
+  post 'posts/create' => 'posts#create'
+  post 'posts/:id/destroy' => 'posts#destroy'
+
 end
