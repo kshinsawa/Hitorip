@@ -12,7 +12,7 @@
     <header>
       <div class="header-logo">
         <!-- <a href="/home/top">ひとりっぷ</a> -->
-        <%= link_to("ひとりっぷ", "/home/top") %>
+        <%= link_to("Hitrip", "/home/top") %>
       </div>
       <ul class="header-menus">
         <li>
@@ -27,12 +27,12 @@
           <%= link_to("新規投稿", "/posts/new") %>
         </li>
         <li>
-          <%= link_to('ログアウト', "/user/#{@user.id}/logout", {method: :post}) %>
+          <%= link_to('ログアウト', "/logout", {method: :post}) %>
         </li>
         <% else %>
         <li>
           <!-- <a href="/home/about">ひとりっぷとは</a> -->
-          <%= link_to("ひとりっぷとは", "/home/about") %>
+          <%= link_to("Hitripとは", "/home/about") %>
         </li>
         <li>
           <%= link_to('新規登録', '/user/new') %>
