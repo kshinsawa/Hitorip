@@ -19,22 +19,19 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     session[:user_id] = @user.id
     @user.save
-    redirect_to('/user/:id')
+    redirect_to("/user/#{@user.id}")
   end
 
   def edit
+    @user = User.find(params[:id])
     @post = Post.where(id: params[:id])
     @comment = Comment.where(id: params[:id])
   end
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.update_attributes(
-      user_name: params[:user_name],
-      email: params[:email],
-      password: params[:password]
-    )
-    redirect_to('/user/:id')
+    @user.user_name = params[:user_name]
+    redirect_to("/user/#{@user.id}")
   end
 
   def login_form
@@ -49,9 +46,9 @@ class UserController < ApplicationController
     )
     if @user
       session[:user_id] = @user.id
-      redirect_to("/user/#{@user.id}")
+      redirect_to ("/user/#{@user.id}")
     else
-      render('user/login_form')
+      render("user/login_form")
     end
   end
 
@@ -67,6 +64,5 @@ class UserController < ApplicationController
   def user_params
     params.require(:user).permit(:user_name, :email, :password)
   end
-
 
 end
