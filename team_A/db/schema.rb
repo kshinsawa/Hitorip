@@ -11,31 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913091240) do
-
-  create_table "comments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.string   "content"
-    t.integer  "review"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20170915015808) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "content"
+    t.string   "image_name"
+    t.text     "content"
+    t.date     "date"
     t.string   "place"
-    t.string   "category"
+    t.string   "catrgory"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "user_name"
-    t.string   "email"
-    t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

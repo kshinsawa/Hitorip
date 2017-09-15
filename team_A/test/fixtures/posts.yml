@@ -2,14 +2,18 @@
 
 one:
   title: MyString
-  content: MyString
+  image_name: MyString
+  content: MyText
+  date: 2017-09-15
   place: MyString
-  category: MyString
+  catrgory: MyString
   user_id: 1
 
 two:
   title: MyString
-  content: MyString
+  image_name: MyString
+  content: MyText
+  date: 2017-09-15
   place: MyString
-  category: MyString
+  catrgory: MyString
   user_id: 1

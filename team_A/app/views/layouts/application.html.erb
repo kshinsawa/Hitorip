@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>hitrip</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% if session[:user_id] %>
-  <%= link_to('ホーム', '/user/home') %>
-    <%= link_to('ログアウト', "/user/#{@user.id}/logout", {method: :post}) %>
-  <% else %>
-    <%= link_to('ホーム', '/user/home') %>
-    <%= link_to('新規登録', '/user/new') %>
-    <%= link_to 'ログイン', '/user/login_form' %>
-  <% end %>
-<%= yield %>
+  <head>
+    <title>hitrip</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+  </head>
 
-</body>
+  <body>
+    <header>
+      <div class="header-logo">
+        <!-- <a href="/home/top">ひとりっぷ</a> -->
+        <%= link_to("ひとりっぷ", "/home/top") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <!-- <a href="#"></a> -->
+        </li>
+        <% if session[:user_id] %>
+        <li>
+          <%= link_to('ホーム', '/user/home') %>
+        </li>
+        <li>
+          <!-- <a href="/posts/new">新規投稿</a> -->
+          <%= link_to("新規投稿", "/posts/new") %>
+        </li>
+        <li>
+          <%= link_to('ログアウト', "/user/#{@user.id}/logout", {method: :post}) %>
+        </li>
+        <% else %>
+        <li>
+          <!-- <a href="/home/about">ひとりっぷとは</a> -->
+          <%= link_to("ひとりっぷとは", "/home/about") %>
+        </li>
+        <li>
+          <%= link_to('新規登録', '/user/new') %>
+        </li>
+        <li >
+          <%= link_to 'ログイン', '/user/login_form' %>
+        </li>
+        <% end %>
+      </ul>
+    </header>
+
+      <%= yield %>
+
+    </body>
 </html>
