@@ -1,10 +1,12 @@
+<!-- 登録情報の表示画面 -->
+
 <div class = "user-show-wrapper">
   <div class = "user-show-container">
     <div class = "user-img">
     </div>
     <div class = "user-name">
       <p>ユーザ名</p>
-      <%= @user.user_name %>
+      <%= @user.id %>
     </div>
     <div class = "user-post">
       <p>投稿履歴</p>
@@ -19,5 +21,5 @@
       <%= comment.content %>
       <% end %>
     </div>
-    <%= link_to("編集する", "/user/#{@user.id}/edit") %>
+    <%= link_to("編集する", "/user/:id/edit") %>
   </div>

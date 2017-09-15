@@ -1,7 +1,4 @@
 class UserController < ApplicationController
-
-  before_action :set_current_user
-
   def home
   end
 
@@ -67,6 +64,5 @@ class UserController < ApplicationController
   def user_params
     params.require(:user).permit(:user_name, :email, :password)
   end
-
 
 end
