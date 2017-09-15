@@ -46,7 +46,7 @@ class UserController < ApplicationController
     )
     if @user
       session[:user_id] = @user.id
-      redirect_to ("/user/#{@user.id}")
+      redirect_to("/user/#{@user.id}")
     else
       render("user/login_form")
     end

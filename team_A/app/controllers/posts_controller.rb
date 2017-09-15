@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     end
     # 場所で絞る
     if params[:place].present?
-    @posts = @posts.get_by_gender params[:gender]
+    @posts = @posts.get_by_place params[:place]
     end
     # カテゴリで絞る
     if params[:category].present?
@@ -24,7 +24,30 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(
+      title: params[:title]
+      # image_name: params[:image_name]
+      # date: paramas[:date]
+      # place: params[:place]
+      # category: params[:category]
+      # content: params[:content]
+    )
+    @post.save
+    redirect_to("/posts/index")
+  end
+
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.title = params[:title]
+    @post.image_name= params[:image_name]
+    @post.date = params[:date]
+    @post.place = params[:place]
+    @post.category = params[:category]
+    @post.content = params[:content]
     @post.save
     redirect_to("/posts/index")
   end
