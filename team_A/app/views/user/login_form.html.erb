@@ -2,15 +2,15 @@
   <div class = "login-title">
     <h1>ログイン</h1>
   </div>
-  <%= form_tag("user/login") do %>
+  <%= form_for :session, :url=> user_login_form_path do |f| %>
   <div class = "login-user_email">
     <p>メールアドレスを入力</p>
-    <input name = 'email' >
+    <%= f.text_field :email %>
   </div>
   <div class = "login-user_email">
     <p>パスワードを入力</p>
-    <input name = 'password'>
+    <%= f.text_field :password %>
   </div>
-  <button type = 'submit' class = 'login-btn'>ログインする</button>
+  <%= f.submit 'ログインする' %>>
   <% end %>
 </div>
