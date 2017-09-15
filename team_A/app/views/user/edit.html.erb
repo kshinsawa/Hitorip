@@ -1,12 +1,12 @@
 <div class = "user-top">
-  <%= form_tag ('user/:id/edit') do  %>
+  <%= form_tag ("user/:id") do  %>
   <div class = "user-wrapper">
     <div class = "user-img">
     </div>
     <div class = "user-name">
       <p>ユーザ名</p>
       <%= @user %>
-      <input type = 'text' name = 'user[name]'>
+      <input type = 'text' name = "user[name]">
     </div>
     <div class = "user-post">
       <p>投稿履歴</p>
@@ -14,8 +14,7 @@
     </div>
     <div class = "user-comment-history">
       <p>コメント履歴</p>
-      <%= @comment.content %>
-      <%= link_to('削除する', '/comment/:id', {method :post}) %>
+      <%= @comment %>
     </div>
   </div>
   <div class = 'edit-btn'>

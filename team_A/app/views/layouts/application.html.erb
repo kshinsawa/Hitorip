@@ -7,12 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if session[:user_id] %>
-  <%= link_to('ログアウト', "/user/#{@user.id}/logout", {method: :post}) %>
-<% else %>
-  <%= link_to('新規登録', user_new_path) %>
-  <%= link_to 'ログイン', user_login_form_path %>
-<% end %>
+  <% if session[:user_id] %>
+  <%= link_to('ホーム', '/user/home') %>
+    <%= link_to('ログアウト', "/user/#{@user.id}/logout", {method: :post}) %>
+  <% else %>
+    <%= link_to('ホーム', '/user/home') %>
+    <%= link_to('新規登録', '/user/new') %>
+    <%= link_to 'ログイン', '/user/login_form' %>
+  <% end %>
 <%= yield %>
 
 </body>

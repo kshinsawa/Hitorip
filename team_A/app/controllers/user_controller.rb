@@ -5,10 +5,10 @@ class UserController < ApplicationController
   def home
   end
 
-  def top
-    @user = User.find(params[:id])
-    @post = Post.where(params[:id])
-    @comment = Comment.where(params[:id])
+  def show
+    @user = User.find_by(id: params[:id])
+    @post = Post.where(id: params[:id])
+    @comment = Comment.where(id: params[:id])
   end
 
   def new
@@ -16,14 +16,10 @@ class UserController < ApplicationController
   end
 
   def create
-    @user = User.new(
-      user_name: params[:user_name],
-      email: params[:email],
-      password: params[:password]
-    )
+    @user = User.new(user_params)
     session[:user_id] = @user.id
     @user.save
-    redirect_to user_top_path(user_params[:user_id])
+    redirect_to('/user/:id')
   end
 
   def edit
@@ -42,6 +38,7 @@ class UserController < ApplicationController
   end
 
   def login_form
+    @user = User.find_by(id: params[:id])
   end
 
   def login
@@ -52,7 +49,7 @@ class UserController < ApplicationController
     )
     if @user
       session[:user_id] = @user.id
-      redirect_to('/user/:id')
+      redirect_to("/user/#{@user.id}")
     else
       render('user/login_form')
     end
@@ -62,7 +59,7 @@ class UserController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     if @user
       session[:user_id] = nil
-      redirect_to(user_top_path)
+      redirect_to('/user/home')
     end
   end
 
@@ -70,5 +67,6 @@ class UserController < ApplicationController
   def user_params
     params.require(:user).permit(:user_name, :email, :password)
   end
+
 
 end
