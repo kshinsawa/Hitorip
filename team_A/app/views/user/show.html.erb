@@ -1,5 +1,3 @@
-<!-- 登録情報の表示画面 -->
-
 <div class = "user-show-wrapper">
   <div class = "user-show-container">
     <div class = "user-img">
@@ -11,7 +9,7 @@
     <div class = "user-post">
       <p>投稿履歴</p>
       <% @post.each do |post| %>
-      <%= post.content %>
+      <%= link_to "#{post.content}", "/posts_alternation" %>
       <% end %>
     </div>
     <div class = "user-comment-history">

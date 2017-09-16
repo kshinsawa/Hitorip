@@ -19,12 +19,17 @@
           <!-- <a href="#"></a> -->
         </li>
         <% if session[:user_id] %>
+        <% @user = User.find(session[:user_id]) %>
         <li>
-          <%= link_to('ホーム', '/user/home') %>
+          <%= link_to('トップ', '/home/top') %>
         </li>
         <li>
           <!-- <a href="/posts/new">新規投稿</a> -->
           <%= link_to("新規投稿", "/posts/new") %>
+        </li>
+        <!-- 本当はここも名前にしたい！ -->
+        <li>
+          <%= link_to "ユーザホーム", "/user/#{@user.id}" %>
         </li>
         <li>
           <%= link_to('ログアウト', "/logout", {method: :post}) %>
