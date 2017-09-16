@@ -31,14 +31,12 @@ class UserController < ApplicationController
   end
 
   def update
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     @user.user_name = params[:user_name]
     redirect_to("/user/#{@user.id}")
   end
 
   def login_form
-    @current_user = User.find_by(id: session[:user_id])
-    @user = User.find_by(id: params[:id])
   end
 
   def login
@@ -49,13 +47,14 @@ class UserController < ApplicationController
     )
     if @user
       session[:user_id] = @user.id
-      redirect_to ("/home/top")
+      redirect_to ("/user/#{@user.id}")
     else
       @email = params[:email]
       @password = params[:password]
-      render('user/login_form')
+      render("home/top")
     end
   end
+  
 
   def logout
     @user = User.find_by(id: session[:user_id])
