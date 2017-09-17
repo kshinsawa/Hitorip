@@ -18,7 +18,11 @@ class UserController < ApplicationController
 
 # 完成
   def create
-    @user = User.new(user_params)
+    @user = User.new(
+      user_name: params[:user_name],
+      email: params[:email],
+      password: params[:password]
+    )
     @user.save
     if @user.save
       session[:user_id] = @user.id
@@ -87,7 +91,7 @@ class UserController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:user_name)
+    params.require(:user).permit(:user_name, :email, :password)
   end
 
   def posts_params

@@ -1,20 +1,23 @@
-<div class = "user-registration">
-  <div class = "container">
-    <div class = "form-heading">新規登録<div>
-      <%= form_for @user, :url=>{:action=>'create'} do |f| %>
-        <div class = "user_name-registration">
-          <h2>ユーザ名</h2>
-          <%= f.text_field :user_name %>
-        </div>
-        <div class = "email-registration">
-          <h2>メールアドレス</h2>
-          <%= f.text_field :email %>
-        </div>
-        <div class = "password-registration">
-          <h2>パスワード</h2>
-        <%= f.text_field :password %>
-        </div>
-      <button type = 'submit' class = 'post-btn'>ユーザ登録完了</button>
-      <% end %>
+<div class = "user-edit-wrapper">
+  <%= form_tag("/user/#{@user.id}") do  %>
+    <div class = "container">
+      <div class = "user-name">
+        <h2>ユーザ名</h2>
+        <input name = "user_name" type="text" placeholder=新しいユーザ名 class="form-control flat">
+      </div>
+      <div class = "user-post-history">
+        <!-- まだ表示だけ、あとで紐付けて 編集できるようにする-->
+        <h2>投稿履歴</h2>
+        <%= @post %>
+      </div>
+      <div class = "user-comment-history">
+        <h2>コメント履歴</h2>
+        <%= link_to "削除する", "/comment/#{@comment.ids}", {method: :post} %>
+      </div>
+    </div>
+    <div class = 'edit-btn'>
+      <input type="submit" value = "編集を完了する" class= "form-control flat">
+    </div> 
+  <% end %>
   </div>
 </div>
