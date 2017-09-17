@@ -1,22 +1,25 @@
-<div class = "user-top">
+<div class = "user-edit-wrapper">
+  
   <%= form_for @user, :url=>{:action=>'update'} do |f| %>
-  <div class = "user-wrapper">
-    <div class = "user-name">
-      <p>ユーザ名</p>
-      <%= f.text_field :user_name %>
+    <div class = "user-container">
+      <div class = "user-name">
+        <h2>ユーザ名</h2>
+        <%= f.text_field :user_name %>
+      </div>
+      <div class = "user-post-history">
+        <!-- まだ表示だけ、あとで紐付けて 編集できるようにする-->
+        <h2>投稿履歴</h2>
+        <%= @post %>
+      </div>
+      <div class = "user-comment-history">
+        <h2>コメント履歴</h2>
+        <%= link_to "削除する", "/comment/#{@comment.ids}", {method: :post} %>
+      </div>
     </div>
-    <div class = "user-post">
-      <!-- まだ表示だけ、あとで紐付けて 編集できるようにする-->
-      <p>投稿履歴</p>
-      <%= @post.title %>
-    </div>
-    <div class = "user-comment-history">
-      <p>コメント履歴</p>
-      <%= link_to "削除する", "/comment/#{@comment.id}", {method: :post} %>
-    </div>
-  </div>
-  <div class = 'edit-btn'>
-    <%= f.submit '編集を完了する' %>
+      <div class = 'edit-btn'>
+        <%= f.submit '編集を完了する' %>
+      </div> 
     <% end %>
-  </div>
 </div>
+</div>
+

@@ -37,8 +37,11 @@ class UserController < ApplicationController
 # 完成
   def update
     @user = User.find(params[:id])
-    @user.user_name = params[:user_name]
-    redirect_to("/user/#{@user.id}")
+    if @user
+      @user.user_name = params[:user_name]
+      flash[:notice] = "編集しました"
+      redirect_to("/user/#{@user.id}")
+    end
   end
 
 #　完成  
@@ -54,6 +57,7 @@ class UserController < ApplicationController
     )
     if @user
       session[:user_id] = @user.id
+      flash[:notice] = "ログインしました"
       redirect_to home_top_path
     else
       @email = params[:email]
@@ -67,6 +71,7 @@ class UserController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     if @user
       session[:user_id] = nil
+      flash[:notice] = "ログアウトしました"
       redirect_to('/home/top')
     end
   end

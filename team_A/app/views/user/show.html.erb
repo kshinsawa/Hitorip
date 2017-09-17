@@ -1,23 +1,26 @@
 <div class = "user-show-wrapper">
-  <div class = "user-show-container">
+  <div class = "user-container">
     <div class = "user-img">
     </div>
     <div class = "user-name">
-      <p>ユーザ名</p>
-      <%= @user.user_name %>
+      <h2><%= @user.user_name %></h2>
     </div>
-    <div class = "user-post">
-      <p>投稿履歴</p>
+  </div>
+    <div class = "user-post-history">
+      <h2>投稿履歴</h2>
       <% @post.each do |post| %>
       <%= link_to "#{post.content}", "/posts_alternation" %>
       <% end %>
     </div>
+    
     <div class = "user-comment-history">
-      <p>コメント履歴</p>
+      <h2>コメント履歴</h2>
       <div class = 'edit-btn'>
-      <% @comment.each do |comment| %>
-      <%= comment.content %>
-      <% end %>
-    </div>
+        <% @comment.each do |comment| %>
+        <%= comment.content %>
+        <% end %>
+      </div>
     <%= link_to("編集する", "/user/#{@user.id}/edit") %>
-  </div>
+    </div>
+  
+ </div> 

@@ -1,22 +1,20 @@
 <div class = "user-registration">
-  <div class = "registration-wrapper">
-    <div class = "section-title">
-      <h1>新規ユーザ登録</h1>
-    </div>
-    <%= form_for @user, :url=>{:action=>'create'} do |f| %>
-    <div class = "user_name-registration">
-      <p>ユーザ名</p>
-      <%= f.text_field :user_name %>
-    </div>
-    <div class = "email-registration">
-      <p>メールアドレス</p>
-      <%= f.text_field :email %>
-    </div>
-    <div class = "password-registration">
-      <p>パスワード</p>
-      <%= f.text_field :password %>
-    </div>
-    <button type = 'submit' class = 'post-btn'>ユーザ登録完了</button>
-    <% end %>
+  <div class = "container">
+    <div class = "form-heading">新規登録<div>
+      <%= form_for @user, :url=>{:action=>'create'} do |f| %>
+        <div class = "user_name-registration">
+          <h2>ユーザ名</h2>
+          <%= f.text_field :user_name %>
+        </div>
+        <div class = "email-registration">
+          <h2>メールアドレス</h2>
+          <%= f.text_field :email %>
+        </div>
+        <div class = "password-registration">
+          <h2>パスワード</h2>
+        <%= f.text_field :password %>
+        </div>
+      <button type = 'submit' class = 'post-btn'>ユーザ登録完了</button>
+      <% end %>
   </div>
 </div>

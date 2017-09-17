@@ -21,9 +21,6 @@
         <% if session[:user_id] %>
         <% @user = User.find(session[:user_id]) %>
         <li>
-          <%= link_to('トップ', '/home/top') %>
-        </li>
-        <li>
           <!-- <a href="/posts/new">新規投稿</a> -->
           <%= link_to("新規投稿", "/posts/new") %>
         </li>
@@ -49,6 +46,11 @@
       </ul>
     </header>
 
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
       <%= yield %>
 
     </body>
