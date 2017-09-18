@@ -1,23 +1,21 @@
-<div class = "user-edit-wrapper">
-  <%= form_tag("/user/#{@user.id}") do  %>
+<div class = "user-registration-wrapper">
+  <%= form_tag("/user") do  %>
     <div class = "container">
-      <div class = "user-name">
-        <h2>ユーザ名</h2>
-        <input name = "user_name" type="text" placeholder=新しいユーザ名 class="form-control flat">
+    　　<h2>ユーザ情報を入力してください。</h2>
+      <div class = "new-user-name">
+        <input name = "user_name" type="text" placeholder="ユーザ名" class="form-control flat">
       </div>
-      <div class = "user-post-history">
-        <!-- まだ表示だけ、あとで紐付けて 編集できるようにする-->
-        <h2>投稿履歴</h2>
-        <%= @post %>
+      <div class = "new-user-email">
+        <h2></h2>
+        <input name = "email" type="text" placeholder="メールアドレス" class="form-control flat">
       </div>
-      <div class = "user-comment-history">
-        <h2>コメント履歴</h2>
-        <%= link_to "削除する", "/comment/#{@comment.ids}", {method: :post} %>
+      <div class = "new-user-password">
+        <h2></h2>
+        <input name = "password" type="password" placeholder="パスワード" class="form-control flat">
       </div>
     </div>
-    <div class = 'edit-btn'>
-      <input type="submit" value = "編集を完了する" class= "form-control flat">
-    </div> 
+      <div class = "registration-submit">
+        <input type="submit" value = "登録する" class= "form-control flat">
+      </div> 
   <% end %>
   </div>
-</div>

@@ -18,15 +18,14 @@
         <li>
           <!-- <a href="#"></a> -->
         </li>
-        <% if session[:user_id] %>
-        <% @user = User.find(session[:user_id]) %>
+        <% if @current_user %>
         <li>
           <!-- <a href="/posts/new"></a> -->
           <%= link_to("Yukuateを投稿する", "/posts/new") %>
         </li>
         <!-- 本当はここも名前にしたい！ -->
         <li>
-          <%= link_to "ユーザホーム", "/user/#{@user.id}" %>
+          <%= link_to @current_user.user_name, "/user/#{@current_user.id}" %>
         </li>
         <li>
           <%= link_to('ログアウト', "/logout", {method: :post}) %>

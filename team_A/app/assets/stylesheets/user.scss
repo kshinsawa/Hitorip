@@ -9,18 +9,26 @@ h2{
     font-weight: 600;
 }
 
+.user-container{
+  max-width: 600px;
+  padding-left: 15px;
+  padding-right: 15px;
+  clear: both;
+  margin-bottom: 20px;
+}
+
+.user-container a{
+  font-weight: 600;
+  color: #72640c;
+}
+
+.user-container a:hover{
+  color: #edde7b;
+}
+
 // ユーザ詳細ページ
 .user-show-wrapper{
     text-align: center;
-}
-
-.user-container{
-    max-width: 600px;
-    margin: 60px auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    clear: both;
-    margin-bottom: 20px;
 }
 
 .user-img{
@@ -45,16 +53,7 @@ h2{
     padding: 20px 30px;
     background-color: white;
     overflow: hidden;
-    box-shadow: 0 2px 6px #c1ced7;
-  }
-
-  .user-post-history a {
-    font-weight: 600;
-    color: #72640c;
-  }
-  
-  .user-post-history a:hover {
-    color: #edde7b;
+    box-shadow: 0 8px 6px -6px #c1ced7;
   }
   
   .user-comment-history {
@@ -66,16 +65,7 @@ h2{
     padding: 20px 30px;
     background-color: white;
     overflow: hidden;
-    box-shadow: 0 2px 6px #c1ced7;
-  }
-
-  .user-comment-history a {
-    font-weight: 600;
-    color: #72640c;
-  }
-  
-  .user-post-comment a:hover {
-    color: #edde7b;
+    box-shadow: 0 8px 6px -6px #c1ced7;
   }
 
 /* ログインページ */

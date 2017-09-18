@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  
+  before_action :authenticate_user, {only: [:new, :create, :destroy]}
+  
   def index
     # すべての投稿を取得する
     @posts = Post.all
