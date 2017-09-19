@@ -4,11 +4,11 @@
     <div class = "user-container">
       <div class = "user-name">
         <h2>ユーザ名</h2>
-        <%= f.text_field :user_name, @user %>
+        <%= f.text_field :user_name, @user.user_name  %>
       </div>
       <div class = "user-post-history">
         <h2>投稿履歴</h2>
-        <%= f.text_field :content, @post %>
+
       </div>
       <div class = "user-comment-history">
         <h2>コメント履歴</h2>

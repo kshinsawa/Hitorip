@@ -28,8 +28,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(content: params[:content])
-    @post.user_id = session[:user_id]
     @post.save
+    @post.user_id = session[:user_id]
     redirect_to("/posts/index")
   end
 
