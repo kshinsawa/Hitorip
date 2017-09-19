@@ -7,17 +7,18 @@
     <div class = "user-post-history">
       <h2>投稿履歴</h2>
       <% @post.each do |post| %>
-      <%= link_to post.content, posts_alternation_path %>
+      <%= link_to post.content, "/#{post.id}/posts_alternation" %>
       <% end %>
     </div>
     <div class = "user-comment-history">
       <h2>コメント履歴</h2>
       <div class = 'edit-btn'>
+        <p>コメントをクリックすると削除できます。</p>
         <% @comment.each do |comment| %>
-        <%= comment.content %>
+        <%= link_to comment.content, "/comment/#{@comment.ids}", {method: :post} %>
         <% end %>
       </div>
     </div>
-    <%= link_to("編集する", "/user/#{@user.id}/edit") %>    
+    <%= link_to("編集する", "/user/#{@user.id}/edit") %>
   </div>
- </div> 
+ </div>

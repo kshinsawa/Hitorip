@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  
+
   before_action :authenticate_user, {only: [:new, :create, :destroy]}
-  
+
   def index
     # すべての投稿を取得する
     @posts = Post.all
@@ -28,6 +28,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(content: params[:content])
+    @post.user_id = session[:user_id]
     @post.save
     redirect_to("/posts/index")
   end

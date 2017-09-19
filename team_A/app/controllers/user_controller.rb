@@ -1,14 +1,16 @@
 class UserController < ApplicationController
 
+  before_action :user_registering_regulation, {only: [:new, :create]}
+
 # 完成
   def home
   end
 
-# 完成 
+# 完成
   def show
     @user = User.find_by(id: params[:id])
-    @post = Post.where(id: params[:id])
-    @comment = Comment.where(id: params[:id])
+    @post = Post.where(user_id: @current_user.id)
+    @comment = Comment.where(user_id: params[:user_id])
   end
 
 # 完成
@@ -18,11 +20,7 @@ class UserController < ApplicationController
 
 # 完成
   def create
-    @user = User.new(
-      user_name: params[:user_name],
-      email: params[:email],
-      password: params[:password]
-    )
+    @user = User.new(user_params)
     @user.save
     if @user.save
       session[:user_id] = @user.id
@@ -34,8 +32,8 @@ class UserController < ApplicationController
   # 投稿の編集とユーザ情報の更新は別のアクションで定義している。
   def edit
     @user = User.find(params[:id])
-    @post = Post.where(id: params[:id])
-    @comment = Comment.where(id: params[:id])
+    @post = Post.where(params[:user_id])
+    @comment = Comment.where(params[:user_id])
   end
 
 # 完成
@@ -43,16 +41,16 @@ class UserController < ApplicationController
     @user = User.find(params[:id])
     if @user
       @user.user_name = params[:user_name]
+      @user.content = params[:content]
       flash[:notice] = "編集しました"
-      redirect_to("/user/#{@user.id}")
+      redirect_to user_path
     end
   end
 
-#　完成  
+
   def login_form
   end
 
-# 完成  
   def login
     puts params
     @user = User.find_by(
@@ -69,8 +67,7 @@ class UserController < ApplicationController
       render("home/top")
     end
   end
-  
-# 完成
+
   def logout
     @user = User.find_by(id: session[:user_id])
     if @user
@@ -81,12 +78,16 @@ class UserController < ApplicationController
   end
 
   def user_post
+    @post = Post.find(params[:id])
   end
 
   def alternation
-      @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
+    if @post
       @post.content = params[:content]
-      redirect_to("/user/#{@user.id}")
+      flash[:notice] = "編集しました"
+      redirect_to user_path
+    end
   end
 
   private

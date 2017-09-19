@@ -16,4 +16,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def user_registering_regulation
+    @user = User.find_by(
+      user_name: params[:user_name],
+      email: params[:email]
+    )
+    if @user
+      flash[:notice] = "既に登録されています"
+      redirect_to new_user_path
+    end
+  end
+
 end

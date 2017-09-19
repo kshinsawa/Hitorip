@@ -1,5 +1,7 @@
 class CreatePosts < ActiveRecord::Migration
   def change
+    # あとでテーブル間の関連付けを持たせるのでコメントアウトで残しています
+    # t.belongs_to :user, index: true
     create_table :posts do |t|
       t.string :title
       t.string :image_name
