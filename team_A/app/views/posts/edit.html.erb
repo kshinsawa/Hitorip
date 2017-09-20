@@ -32,8 +32,10 @@
           <%= @post.content%>
         </textarea>
         <input type="submit" value="投稿" class="form-control">
+
       </div>
     </div>
     <% end %>
+    <%= link_to("投稿を削除する", "/posts/#{@post.id}/destroy", {method: "post"}) %>
   </div>
 </div>
