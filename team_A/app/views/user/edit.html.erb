@@ -1,22 +1,22 @@
 <div class = "user-edit-wrapper">
 
-  <%= form_for @user, :url=>{:action=>'update'} do |f| %>
+  <%= form_tag ("/user/#{@user.id}", {method: :put}) do %>
     <div class = "user-container">
       <div class = "user-name">
         <h2>ユーザ名</h2>
-        <%= f.text_field :user_name, @user.user_name  %>
+        <input name = "user_name" value = "<%=@user.user_name%>">
       </div>
       <div class = "user-post-history">
-        <h2>投稿履歴</h2>
-
+        <h2>メールアドレス</h2>
+　　　　<input name = "email" value = "<%=@user.email%>">
       </div>
       <div class = "user-comment-history">
-        <h2>コメント履歴</h2>
-        <%= link_to "削除する", "/comment/#{@comment.ids}", {method: :post} %>
+        <h2>パスワード</h2>
+        <input name = "password" value = "<%=@user.password%>">
       </div>
     </div>
       <div class = 'edit-btn'>
-        <%= f.submit '編集を完了する' %>
+        <input type = "submit" value = "編集を完了する">
       </div>
     <% end %>
 </div>

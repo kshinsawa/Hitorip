@@ -9,7 +9,7 @@ class UserController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @post = Post.where(user_id: @current_user.id)
-    @comment = Comment.where(user_id: params[:user_id])
+    @comment = Comment.where(user_id: @current_user.id)
   end
 
 
@@ -20,28 +20,30 @@ class UserController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to("/home/top")
-    end
+    session[:user_id] = @user.id
+    redirect_to("/home/top")
   end
 
   def edit
     @user = User.find_by(id: params[:id])
-    @post = Post.where(params[:user_id])
-    @comment = Comment.where(params[:user_id])
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     if @user
       @user.user_name = params[:user_name]
-      @user.content = params[:content]
+      @user.email = params[:email]
+      @user.password = params[:password]
+      puts @user.user_name
+      puts @user.email
+      puts @user.password
       flash[:notice] = "編集しました"
       redirect_to user_path
+    else
+      flash[:notice] = "編集権限がありません"
+      render('user/show')
     end
   end
-
 
   def login_form
   end
@@ -76,7 +78,5 @@ class UserController < ApplicationController
   def user_params
     params.require(:user).permit(:user_name, :email, :password)
   end
-
-
 
 end
