@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :authenticate_user, {only: [:new, :create, :destroy]}
+  # before_action :authenticate_user, {only: [:new, :create, :destroy]}
 
   def index
     # すべての投稿を取得する
@@ -28,14 +28,22 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(
-      title: params[:title]
-      # image_name: params[:image_name]
-      # date: paramas[:date]
-      # place: params[:place]
-      # category: params[:category]
-      # content: params[:content]
+      title: params[:title],
+      image_name: params[:image_name],
+      date: params[:date],
+      place: params[:place],
+      category: params[:category],
+      content: params[:content]
     )
     @post.save
+    if @post
+      puts @post.title
+      puts @post.image_name
+      puts @post.date
+      puts @post.place
+      puts @post.category
+      puts @post.content
+    end
     redirect_to("/posts/index")
   end
 
@@ -51,8 +59,8 @@ class PostsController < ApplicationController
     @post.place = params[:place]
     @post.category = params[:category]
     @post.content = params[:content]
-    @post.save
     @post.user_id = session[:user_id]
+    @post.save
     redirect_to("/posts/index")
   end
 

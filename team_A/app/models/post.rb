@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
 
-<<<<<<< HEAD
   #日付による絞り込み
   scope :get_by_date, ->(date) {
   where(date: date)
@@ -13,7 +12,7 @@ class Post < ActiveRecord::Base
   scope :get_by_category, ->(category) {
   where(category: category)
   }
-=======
+
   has_many :comments
   has_many :evaluations
   belongs_to :user
@@ -23,7 +22,6 @@ class Post < ActiveRecord::Base
   validates_presence_of :content
   validates_presence_of :date
   validates_presence_of :place
-  validates_presence_of :catrgory
->>>>>>> master
+  validates_presence_of :category
 
 end

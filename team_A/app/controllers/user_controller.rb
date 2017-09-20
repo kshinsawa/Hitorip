@@ -22,7 +22,7 @@ class UserController < ApplicationController
     @user.save
     if @user.save
       session[:user_id] = @user.id
-      redirect_to("/home/top") :notice = "登録が完了しました"
+      redirect_to("/home/top")
     end
   end
 
@@ -39,7 +39,7 @@ class UserController < ApplicationController
       @user.user_name = params[:user_name]
       @user.content = params[:content]
       flash[:notice] = "編集しました"
-      redirect_to user_path :notice = "編集しました"
+      redirect_to user_path
     end
   end
 
@@ -81,6 +81,7 @@ class UserController < ApplicationController
     @post = Post.find(params[:id])
     if @post
       @post.content = params[:content]
+
       flash[:notice] = "編集しました"
       redirect_to user_path
     end
