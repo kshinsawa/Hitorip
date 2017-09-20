@@ -32,7 +32,6 @@ class UserController < ApplicationController
     @comment = Comment.where(params[:user_id])
   end
 
-# 完成
   def update
     @user = User.find(params[:id])
     if @user
@@ -73,27 +72,11 @@ class UserController < ApplicationController
     end
   end
 
-  def user_post
-    @post = Post.find(params[:id])
-  end
-
-  def alternation
-    @post = Post.find(params[:id])
-    if @post
-      @post.content = params[:content]
-
-      flash[:notice] = "編集しました"
-      redirect_to user_path
-    end
-  end
-
   private
   def user_params
     params.require(:user).permit(:user_name, :email, :password)
   end
 
-  def posts_params
-    params.require(:posts).permit(:title, :content, :data, :catrgory, :place)
-  end
+
 
 end
