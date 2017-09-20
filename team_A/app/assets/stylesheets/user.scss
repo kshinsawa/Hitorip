@@ -15,10 +15,12 @@ h2{
   padding-right: 15px;
   clear: both;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .user-container a{
   font-weight: 600;
+  overflow: hidden;
   color: #72640c;
 }
 
@@ -27,7 +29,7 @@ h2{
 }
 
 // ユーザ詳細ページ
-/* .user-show-wrapper{
+ .user-show-wrapper{
     text-align: center;
 }
 
@@ -38,7 +40,7 @@ h2{
     box-shadow: 0 2px 6px #c1ced7;
     margin: 20px 0 10px;
     object-fit: cover;
-}*/
+}
 
 .user-show-wrapper h2{
     font-size: 20px;
@@ -46,7 +48,7 @@ h2{
     line-height: 1.2;
 }
 
-/* .user-post-history {
+ .user-post-history {
     max-width: 600px;
     margin: 60px auto;
     clear: both;
@@ -59,14 +61,26 @@ h2{
   .user-comment-history {
     max-width: 600px;
     margin: 60px auto;
-    padding-left: 15px;
-    padding-right: 15px;
     clear: both;
     padding: 20px 30px;
     background-color: white;
     overflow: hidden;
     box-shadow: 0 8px 6px -6px #c1ced7;
-  } */
+  } 
+
+.user-edit-btn a {
+  padding: 20px 30px;
+  background-color: #202f55;
+  border-radius: 4px;
+  color: #bcc7d7
+}
+
+.user-edit-btn a:hover {
+  padding: 20px 30px;
+  background-color: #043c78;
+  border-radius: 4px;
+  color: #fff
+}
 
 
 /* ログインページ */
@@ -104,4 +118,31 @@ h2{
   color: #626063;
   font-size: 20px;
   font-weight: 600;
+}
+
+
+/* タブメニュー */
+#tab-menu {
+  list-style: none;
+}
+#tab-menu li {
+  display: inline-block;
+  padding: 5px 25px;
+  background: #eee;
+}
+#tab-menu li.active {
+  background: #000;
+  color: #fff;
+}
+
+/* タブの中身 */
+#tab-box {
+  padding: 25px;
+  border: 5px solid #000;
+}
+#tab-box div {
+  display: none;
+}
+#tab-box div.active {
+  display: block;
 }

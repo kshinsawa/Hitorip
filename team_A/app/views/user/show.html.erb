@@ -1,8 +1,10 @@
 <div class = "user-show-wrapper">
   <div class = "user-container">
     <div class = "user-img">
+    </div>
     <div class = "user-name">
-      <h2><%= @user.user_name %></h2>
+      <h2>ユーザ名</h2>
+      <p><%= @user.user_name %></p>
     </div>
     <div class = "user-post-history">
       <h2>投稿履歴</h2>
@@ -19,6 +21,21 @@
         <% end %>
       </div>
     </div>
-    <%= link_to("編集する", "/user/#{@user.id}/edit") %>
+    <div class = "user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>
   </div>
  </div>
+
+ <!-- タブメニュー 
+ <ul id="tab-menu">
+   <li class="active">タブ1</li>
+   <li>タブ2</li>
+   <li>タブ3</li>
+ </ul>
+ 
+  タブの中身 
+ <div id="tab-box">
+   <div class="active">タブ1の中身</div>
+   <div>タブ2の中身</div>
+   <div>タブ3の中身</div>
+ </div>
+ -->
