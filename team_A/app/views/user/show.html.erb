@@ -21,7 +21,17 @@
         <% end %>
       </div>
     </div>
+<<<<<<< HEAD
     <div class = "user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>
+=======
+    <div class = "bookmarks-history">
+      <h2>ブックマーク履歴</h2>
+      <% @bookmark.each do |bookmark| %>
+      <%= bookmark.user_id %>
+      <% end %>
+    </div>
+    <%= link_to("編集する", "/user/#{@user.id}/edit") %>
+>>>>>>> user-show
   </div>
  </div>
 

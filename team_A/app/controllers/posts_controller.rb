@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     end
     # カテゴリで絞る
     if params[:category].present?
-    @posts = @posts.get_by_gender params[:category]
+    @posts = @posts.get_by_category params[:category]
     end
   end
 
@@ -66,9 +66,21 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @user = User.find(session[:user_id])
     @post = Post.find_by(id: params[:id])
     @post.destroy
-    redirect_to("/posts/index")
+    flash[notice] = "投稿を削除しました"
+    redirect_to("/user/#{@user.id}")
+  end
+
+  def bookmark
+    @post = Post.find_by(id: params[:id])
+    @bookmark = Bookmark.new(
+      post_id: @post.id,
+      user_id: session[:user_id]
+    )
+    @bookmark.save
+    redirect_to posts_index_path
   end
 
 end

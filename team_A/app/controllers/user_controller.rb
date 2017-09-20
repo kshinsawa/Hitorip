@@ -10,6 +10,7 @@ class UserController < ApplicationController
     @user = User.find_by(id: params[:id])
     @post = Post.where(user_id: @current_user.id)
     @comment = Comment.where(user_id: @current_user.id)
+    @bookmark = Bookmark.where(user_id: session[:user_id])
   end
 
 
