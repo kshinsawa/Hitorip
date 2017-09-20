@@ -1,13 +1,14 @@
-<div class="main top-main">
-  <div class="top-message">
-    <h3>ひとりの時間、を楽しもう</h3>
-    <p>Hitripで探そう</p>
-    <%= form_tag("/posts/index", method: "get") do%>
-    <form class="navbar-form navbar-center" role="search">
-      <div class="form-group">
+<div class="main posts-new">
+<div class="container">
+  <h1 class="form-heading">投稿する</h1>
+  <%= form_tag("/#{@post.id}/posts_alternation") do %>
+    <div class="form">
+      <div class="form-body">
+        <input type="text" name="title" placeholder="タイトル" class="form-control">
+        <input type="file" name="image_name" class="form-control">
         <input type="date" name="date" class="form-control">
         <select name="place" class="form-control">
-          <option value="">場所を選ぶ</option>
+          <option value="">場所</option>
           <option value=""><都心エリア>千代田区・中央区・港区</option>
           <option value=""><城東エリア>江東区・墨田区・葛飾区・江戸川区</option>
           <option value=""><上野エリア>台東区・荒川区・足立区</option>
@@ -17,7 +18,7 @@
           <option value=""><品川エリア>品川区・大田区</option>
         </select>
         <select name="category" class="form-control">
-          <option value="">カテゴリを選ぶ</option>
+          <option value="">カテゴリ</option>
           <option value="">イベント</option>
           <option value="">エンタメ</option>
           <option value="">カフェ</option>
@@ -25,12 +26,10 @@
           <option value="">リラックス</option>
           <option value="">その他</option>
         </select>
-        <!-- <input type="text" class="form-control" placeholder="フリーワード"> -->
+        <textarea name="content" placeholder="詳細" class="form-control"></textarea>
+        <input type="submit" value="投稿" class="form-control">
       </div>
-      <button type="submit" class="btn btn-default">ひとりっぷする？
-        <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
-      </button>
-    </form>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
 </div>

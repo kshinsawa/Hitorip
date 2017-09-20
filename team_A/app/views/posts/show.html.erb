@@ -1,6 +1,7 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
+<<<<<<< HEAD
       <%= @post.title %>
       <!-- <%= @post.date %> -->
       <!-- <%= @post.place %> -->
@@ -9,6 +10,9 @@
     <div class="post-menus">
       <%= link_to("編集", "/posts/#{@post.id}/edit", {method: "post"}) %>
       <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+=======
+      <%= @post.content %>
+>>>>>>> master
     </div>
   </div>
 </div>

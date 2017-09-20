@@ -18,13 +18,14 @@
         <li>
           <!-- <a href="#"></a> -->
         </li>
-        <% if session[:user_id] %>
+        <% if @current_user %>
         <li>
-          <%= link_to('ホーム', '/user/home') %>
+          <!-- <a href="/posts/new"></a> -->
+          <%= link_to("Yukuateを投稿する", "/posts/new") %>
         </li>
+        <!-- 本当はここも名前にしたい！ -->
         <li>
-          <!-- <a href="/posts/new">新規投稿</a> -->
-          <%= link_to("新規投稿", "/posts/new") %>
+          <%= link_to @current_user.user_name, "/user/#{@current_user.id}" %>
         </li>
         <li>
           <%= link_to('ログアウト', "/logout", {method: :post}) %>
@@ -44,6 +45,11 @@
       </ul>
     </header>
 
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
       <%= yield %>
 
     </body>

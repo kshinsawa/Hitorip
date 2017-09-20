@@ -1,3 +1,107 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*共通 */
+h2{
+    color: #626063;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.user-container{
+  max-width: 600px;
+  padding-left: 15px;
+  padding-right: 15px;
+  clear: both;
+  margin-bottom: 20px;
+}
+
+.user-container a{
+  font-weight: 600;
+  color: #72640c;
+}
+
+.user-container a:hover{
+  color: #edde7b;
+}
+
+// ユーザ詳細ページ
+/* .user-show-wrapper{
+    text-align: center;
+}
+
+.user-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin: 20px 0 10px;
+    object-fit: cover;  
+}
+
+.user-show-wrapper h2{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.user-post-history {
+    max-width: 600px;
+    margin: 60px auto;
+    clear: both;
+    padding: 20px 30px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 8px 6px -6px #c1ced7;
+  }
+  
+  .user-comment-history {
+    max-width: 600px;
+    margin: 60px auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    clear: both;
+    padding: 20px 30px;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 8px 6px -6px #c1ced7;
+  }
+  * /
+
+/* ログインページ */
+  .login-wrapper{
+    text-align: center;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px 30px;
+  }
+
+  .login-wrapper h2{
+    color: #626063;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .login-wrapper h1{
+    font-size: 23px;
+  }
+
+  .login-form{
+    padding: 30px; 
+    margin: 15px;
+  }
+
+/*  新規登録ページ */
+.user-registration-wrapper{
+  text-align: center;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 10px 10px; 
+}
+
+.user-registration-wrapper h2{
+  color: #626063;
+  font-size: 20px;
+  font-weight: 600;
+}

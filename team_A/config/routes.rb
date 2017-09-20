@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 Rails.application.routes.draw d
+=======
+Rails.application.routes.draw do
+
+  post '/:id/posts_alternation' => 'user#alternation'
+  get '/:id/posts_alternation' => 'user#user_post'
+>>>>>>> master
   post '/logout' => 'user#logout'
-  post '/login' => 'user#login'
-  get 'user/login_form' => 'user#login_form'
-  get 'user/home' => 'user#home'
+  post '/user/login' => 'user#login'
+  get '/user/login_form' => 'user#login_form'
   resources :user
 
 #コメント削除のルーティング
   post 'comment/:id' => 'comment#destroy'
+
   get 'home/top' => 'home#top'
   get 'home/about' => 'home#about'
 
