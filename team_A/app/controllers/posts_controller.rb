@@ -33,7 +33,8 @@ class PostsController < ApplicationController
       date: params[:date],
       place: params[:place],
       category: params[:category],
-      content: params[:content]
+      content: params[:content],
+      user_id: session[:user_id]
     )
     @post.save
     if @post

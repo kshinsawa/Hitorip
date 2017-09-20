@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  include ActiveModel::Model
-  attr_accessor :user_name, :content 
+  #include ActiveModel::Model
+  #attr_accessor :content
 
   has_many :comments
   has_many :posts
