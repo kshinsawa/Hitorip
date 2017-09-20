@@ -7,7 +7,7 @@
     <div class = "user-post-history">
       <h2>投稿履歴</h2>
       <% @post.each do |post| %>
-      <%= link_to post.title, edit_user_path %>
+      <%= link_to post.title, "/posts/#{post.id}/edit" %>
       <% end %>
     </div>
     <div class = "user-comment-history">

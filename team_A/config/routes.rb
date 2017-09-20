@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  post '/:id/posts_alternation' => 'user#alternation'
-  get '/:id/posts_alternation' => 'user#user_post'
-
   post '/logout' => 'user#logout'
   post '/user/login' => 'user#login'
   get '/user/login_form' => 'user#login_form'
