@@ -8,7 +8,7 @@
 }
 
 html {
-  font: 100%/1.5 'Avenir Next', 'Hiragino Sans', sans-serif;
+  font: 100%/1.5 'Lucida Grande', Meiryo, sans-serif;
   line-height: 1.7;
   letter-spacing: 1px;
 }
@@ -53,8 +53,7 @@ body {
   width: 100%;
   height: auto;
   min-height: 100%;
-  // background-color: #f5f8fa;
-  background-color: #fcc800;
+  background-color: #f5f8fa;
 }
 
 .container {
@@ -103,6 +102,7 @@ header {
   font-size: 13px;
   color:#626063;
   padding-left: 15px;
+
 }
 
 .header-menus a {

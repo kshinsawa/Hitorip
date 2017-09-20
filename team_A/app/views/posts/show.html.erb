@@ -7,8 +7,7 @@
       <%= @post.content %>
     </div>
     <div class="post-menus">
-      <%= link_to("編集", "/posts/#{@post.id}/edit", {method: "post"}) %>
-      <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+      <%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %>
     </div>
   </div>
 </div>

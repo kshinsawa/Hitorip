@@ -20,12 +20,14 @@
         </li>
         <% if @current_user %>
         <li>
+        <%= link_to("タイムライン", "/posts/index") %>
+        </li>
+        <li>
           <!-- <a href="/posts/new"></a> -->
           <%= link_to("Yukuateを投稿する", "/posts/new") %>
         </li>
-        <!-- 本当はここも名前にしたい！ -->
         <li>
-          <%= link_to @current_user.email, "/user/#{@current_user.id}" %>
+          <%= link_to @current_user.user_name, "/user/#{@current_user.id}" %>
         </li>
         <li>
           <%= link_to('ログアウト', "/logout", {method: :post}) %>
