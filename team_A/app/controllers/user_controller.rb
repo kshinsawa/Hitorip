@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 
-  before_action :set_current_user
+
 
   def home
   end
@@ -17,9 +17,11 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    session[:user_id] = @user.id
     @user.save
-    redirect_to("/user/#{@user.id}")
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to("/home/top")
+    end
   end
 
   def edit
@@ -35,6 +37,7 @@ class UserController < ApplicationController
   end
 
   def login_form
+    @current_user = User.find_by(id: session[:user_id])
     @user = User.find_by(id: params[:id])
   end
 
@@ -46,9 +49,11 @@ class UserController < ApplicationController
     )
     if @user
       session[:user_id] = @user.id
-      redirect_to("/user/#{@user.id}")
+      redirect_to ("/home/top")
     else
-      render("user/login_form")
+      @email = params[:email]
+      @password = params[:password]
+      render('user/login_form')
     end
   end
 
@@ -56,7 +61,7 @@ class UserController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     if @user
       session[:user_id] = nil
-      redirect_to('/user/home')
+      redirect_to('/home/top')
     end
   end
 

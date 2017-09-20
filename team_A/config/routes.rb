@@ -1,9 +1,8 @@
-Rails.application.routes.draw do
-
+Rails.application.routes.draw d
+  post '/logout' => 'user#logout'
+  post '/login' => 'user#login'
   get 'user/login_form' => 'user#login_form'
-  get 'user/:id' => 'user#show'
-  post 'user/logout' => 'user#logout'
-  post 'user/:id/login' => 'user#login'
+  get 'user/home' => 'user#home'
   resources :user
 
 #コメント削除のルーティング
