@@ -2,8 +2,8 @@
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
     <%= form_tag("/posts/create") do %>
-    <form class="navbar-form navbar-center" role="search">
-      <div class="form-group">
+      <div class="form">
+        <div class="form-body">
           <input type="text" name="title" placeholder="タイトル" class="form-control">
           <input type="file" name="image_name" class="form-control">
           <input type="date" name="date" class="form-control">
@@ -29,7 +29,7 @@
           <textarea name="content" placeholder="詳細" class="form-control"></textarea>
           <input type="submit" value="投稿" class="form-control">
         </div>
-      </form>
+      </div>
     <% end %>
   </div>
 </div>
