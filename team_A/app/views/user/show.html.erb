@@ -21,28 +21,24 @@
         <% end %>
       </div>
     </div>
-<<<<<<< HEAD
-    <div class = "user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>
-=======
     <div class = "bookmarks-history">
       <h2>ブックマーク履歴</h2>
       <% @bookmark.each do |bookmark| %>
       <%= bookmark.user_id %>
       <% end %>
     </div>
-    <%= link_to("編集する", "/user/#{@user.id}/edit") %>
->>>>>>> user-show
+    <div class = "user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>
   </div>
  </div>
 
- <!-- タブメニュー 
+ <!-- タブメニュー
  <ul id="tab-menu">
    <li class="active">タブ1</li>
    <li>タブ2</li>
    <li>タブ3</li>
  </ul>
- 
-  タブの中身 
+
+  タブの中身
  <div id="tab-box">
    <div class="active">タブ1の中身</div>
    <div>タブ2の中身</div>
