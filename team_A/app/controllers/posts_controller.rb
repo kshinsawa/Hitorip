@@ -36,16 +36,12 @@ class PostsController < ApplicationController
       content: params[:content],
       user_id: session[:user_id]
     )
-    @post.save
-    if @post
-      puts @post.title
-      puts @post.image_name
-      puts @post.date
-      puts @post.place
-      puts @post.category
-      puts @post.content
+    if @post.save
+      flash[:notice] = "投稿が完了しました"
+      redirect_to("/posts/index")
+    else
+      render("posts/edit")
     end
-    redirect_to("/posts/index")
   end
 
   def edit
@@ -61,8 +57,12 @@ class PostsController < ApplicationController
     @post.category = params[:category]
     @post.content = params[:content]
     @post.user_id = session[:user_id]
-    @post.save
-    redirect_to("/posts/index")
+    if @post.save
+      flash[:notice] = "編集が完了しました"
+      redirect_to("/posts/index")
+    else
+      render("posts/edit")
+    end
   end
 
   def destroy
