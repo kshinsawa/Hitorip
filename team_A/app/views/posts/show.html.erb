@@ -23,7 +23,8 @@
       <% if @bookmark == nil %>
       <div class = "btn bookmark-btn"><%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %></div>
       <% else %>
-      <div class = "btn return-btn"><%=link_to "ユーザトップに戻る", "/user/#{@current_user.id}" %></div>
+      <p>既にブックマークしています</p>
+      <div class = "btn return-btn"><%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %></div>
       <% end %>
     </div>
 
