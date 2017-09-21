@@ -10,7 +10,7 @@ class UserController < ApplicationController
     @user = User.find_by(id: params[:id])
     @post = Post.where(user_id: @current_user.id)
     @comment = Comment.where(user_id: @current_user.id)
-    @bookmark = Bookmark.where(user_id: session[:user_id])
+    @bookmark = Post.joins("INNER JOIN bookmarks ON bookmarks.post_id = posts.id").where("bookmarks.user_id = ?", @current_user.id)
   end
 
 

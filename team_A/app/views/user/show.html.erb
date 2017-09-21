@@ -23,8 +23,8 @@
     </div>
     <div class = "bookmarks-history">
       <h2>ブックマーク履歴</h2>
-      <% @bookmark.each do |bookmark| %>
-      <%= bookmark.user_id %>
+      <% @bookmark.each do |bookmark|  %>
+      <%= link_to bookmark.title, "/posts/#{bookmark.id}" %>
       <% end %>
     </div>
     <div class = "user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>

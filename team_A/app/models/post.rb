@@ -13,12 +13,11 @@ class Post < ActiveRecord::Base
   where(category: category)
   }
 
-  # 一つの投稿に対して多数のコメントがつく
+  has_many :bookmarks, :foreign_key => 'post_id'
   has_many :comments
   # 一つの投稿に対して多数の評価(★)がつく
   has_many :evaluations
-  # 投稿は一人のユーザーに従事する
-  belongs_to :user
+  belongs_to :user, :foreign_key => 'user_id'
 
   validates_presence_of :title
   validates_presence_of :image_name

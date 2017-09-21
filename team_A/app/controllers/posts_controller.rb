@@ -78,7 +78,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @bookmark = Bookmark.new(
       post_id: @post.id,
-      user_id: session[:user_id]
+      user_id: @current_user.id
     )
     @bookmark.save
     redirect_to posts_index_path
