@@ -1,7 +1,10 @@
 <div class = "user-registration-wrapper">
-  <%= form_tag("/user") do  %>
+  <%= form_tag("/user"), {multipart: true} do %>
     <div class = "container">
     　　<h2>ユーザ情報を入力してください。</h2>
+      <div class = "user-img">
+        <input name = "image_name" type = "file">
+      </div>
       <div class = "new-user-name">
         <input name = "user_name" type="text" placeholder="ユーザ名" class="form-control flat">
       </div>
@@ -16,6 +19,6 @@
     </div>
       <div class = "registration-submit">
         <input type="submit" value = "登録する" class= "form-control flat">
-      </div> 
+      </div>
   <% end %>
   </div>

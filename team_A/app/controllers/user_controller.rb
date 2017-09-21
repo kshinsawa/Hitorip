@@ -31,19 +31,9 @@ class UserController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    if @user
-      @user.user_name = params[:user_name]
-      @user.email = params[:email]
-      @user.password = params[:password]
-      puts @user.user_name
-      puts @user.email
-      puts @user.password
-      flash[:notice] = "編集しました"
-      redirect_to user_path
-    else
-      flash[:notice] = "編集権限がありません"
-      render('user/show')
-    end
+    @user.update_attributes(user_params)
+    flash[:notice] = "編集しました"
+    redirect_to user_path
   end
 
   def login_form
@@ -77,7 +67,7 @@ class UserController < ApplicationController
 
   private
   def user_params
-    params.permit(:user_name, :email, :password)
+    params.permit(:user_name, :email, :password, :image_name)
   end
 
 end

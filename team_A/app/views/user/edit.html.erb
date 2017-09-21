@@ -1,7 +1,9 @@
 <div class = "user-edit-wrapper">
-
-  <%= form_tag ("/user/#{@user.id}") do %>
+  <%= form_tag ("/user/#{@user.id}"), {:method => :patch}, {multipart: true} do %>
     <div class = "user-container">
+      <div class = "user-img">
+        <input name = "image_name" type = "file">
+      </div>
       <div class = "user-name">
         <h2>ユーザ名</h2>
         <input name = "user_name" value = "<%=@user.user_name%>">
@@ -18,6 +20,6 @@
       <div class = 'edit-btn'>
         <input type = "submit" value = "編集を完了する">
       </div>
-    <% end %>
+  <% end %>
 </div>
 </div>

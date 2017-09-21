@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @bookmark = Bookmark.find_by(user_id: @current_user.id)
   end
 
   def new

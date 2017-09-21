@@ -31,11 +31,10 @@
         <textarea name="content" placeholder="詳細" class="form-control" value = "<%=@post.content%>">
           <%= @post.content%>
         </textarea>
-        <input type="submit" value="投稿" class="form-control">
-
+        <input type="submit" value="編集を終える" class="form-control">
+　　　　<%= link_to("投稿を削除する", "/posts/#{@post.id}/destroy", {method: "post"}) %>
       </div>
     </div>
     <% end %>
-    <%= link_to("投稿を削除する", "/posts/#{@post.id}/destroy", {method: "post"}) %>
   </div>
 </div>
