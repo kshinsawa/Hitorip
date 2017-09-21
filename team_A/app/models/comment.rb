@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
-
-  belongs_to :posts
+  # コメントは一つの投稿に従事する
+  belongs_to :post, :foreign_key => 'post_id'
+  # コメントは一人のユーザーに従事する
+  belongs_to :user, :foreign_key => 'user_id'
 
 end
