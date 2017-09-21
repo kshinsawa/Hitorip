@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-
   has_many :posts
   has_many :comments, :foreign_key => 'user_id'
   has_many :bookmarks, :foreign_key => 'user_id'
+  has_many :evaluations, :foreign_key => 'user_id'
 
   validates_presence_of :user_name
   validates_presence_of :email
