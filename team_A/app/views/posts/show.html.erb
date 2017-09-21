@@ -1,13 +1,43 @@
 <div class="main posts-show">
   <div class="container">
-    <div class="posts-show-item">
+    <h6>投稿内容</h5>
+    <!-- <div class="posts-show-item">
       <%= @post.title %>
       <%= @post.date %>
       <%= @post.place %>
       <%= @post.content %>
+    </div> -->
+    <div class="main-item posts-show-item">
+      <div class="img">
+        <img src="" alt="">
+      </div>
+      <div class="content">
+        <h5><%= @post.title %></h5>
+        <p><%= @post.content %></p>
+      </div>
     </div>
-    <div class="post-menus">
+    <div class="sub-item posts-show-item">
+      <i class="fa fa-map-marker" aria-hidden="true"></i><%= @post.place %>
+      <i class="fa fa-calendar" aria-hidden="true"></i><%= @post.date %>
+      <i class="fa fa-bookmark-o" aria-hidden="true"></i><%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %>
+    </div>
+    <!-- <div class="post-menus">
       <%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %>
+    </div> -->
+    <h6>コメント一覧</h6>
+    <% @comments.each do |comment| %>
+    <div class="posts-show-item">
+      <%= comment.content %>
     </div>
+    <% end %>
+    <%= form_tag("/comment/#{@post.id}/create") do %>
+      <div class="form">
+        <div class="form-body">
+          <input type="text" name="content" placeholder="コメント内容" class="form-control">
+          <input type="submit" value="コメント" class="form-control">
+        </div>
+      </div>
+    <% end %>
+
   </div>
 </div>

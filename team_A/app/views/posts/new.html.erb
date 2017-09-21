@@ -1,11 +1,6 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <% @post.errors.full_massages.each do |message| %>
-    <div class="form-error">
-      <%= message %>
-    </div>
-    <% end %>
     <%= form_tag("/posts/create") do %>
       <div class="form">
         <div class="form-body">

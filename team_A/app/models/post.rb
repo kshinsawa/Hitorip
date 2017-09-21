@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
   }
 
   has_many :bookmarks, :foreign_key => 'post_id'
-  has_many :comments
+  has_many :comments, :foreign_key => 'post_id'
   # 一つの投稿に対して多数の評価(★)がつく
   has_many :evaluations
   belongs_to :user, :foreign_key => 'user_id'
