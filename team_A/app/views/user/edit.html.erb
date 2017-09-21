@@ -1,24 +1,26 @@
 <div class = "user-edit-wrapper top-main">
   <%= form_tag "/user/#{@user.id}", :method => :patch, multipart: true do %>
     <div class = "user-container">
-      <div class = "user-img">
-        <input name = "image_name" type = "file">
+      <h1>ユーザ情報を編集する</h1>
+      <div class = "edit-img">
+        <h2>トップ画像</h2>
+        <input name = "image_name" type = "file" class = "form-control">
       </div>
-      <div class = "user-name">
+      <div class = "edit-name">
         <h2>ユーザ名</h2>
-        <input name = "user_name" value = "<%=@user.user_name%>">
+        <input name = "user_name" value = "<%=@user.user_name%>" class = "form-control">
       </div>
-      <div class = "user-post-history">
+      <div class = "edit-email">
         <h2>メールアドレス</h2>
-        <input name = "email" value = "<%=@user.email%>">
+        <input name = "email" value = "<%=@user.email%>" class = "form-control">
       </div>
-      <div class = "user-comment-history">
+      <div class = "edit-password">
         <h2>パスワード</h2>
-        <input name = "password" value = "<%=@user.password%>">
+        <input name = "password" value = "<%=@user.password%>" class = "form-control">
       </div>
     </div>
-      <div class = 'edit-btn'>
-        <input type = "submit" value = "編集を完了する">
+      <div class = 'user-edit-btn'>
+        <input type = "submit" value = "編集を完了する" class = "form-control">
       </div>
   <% end %>
 </div>

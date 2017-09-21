@@ -1,17 +1,18 @@
 <div class = "user-show-wrapper top-main">
   <div class = "user-container">
+    <div class = "user-name">
+      <h1><%= @user.user_name %></h1>
+    </div>
     <div class = "user-img">
       <img src="<%= "/user_images/#{@user.image_name}" %>">
-    </div>
-    <div class = "user-name">
-      <h2>ユーザ名</h2>
-      <p><%= @user.user_name %></p>
     </div>
     <div class = "user-post-history">
       <h2>投稿履歴</h2>
         <% if @post %>
         <% @post.each do |post| %>
-        <%= link_to post.title, "/posts/#{post.id}/edit" %>
+        <li><%= link_to post.title, "/posts/#{post.id}/edit" %></li>
+        <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>
+        <i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %>
         <% end %>
       <% else %>
         <p>まだ投稿がありません。Yukuateを投稿しよう。</p>
@@ -20,7 +21,6 @@
     <div class = "user-comment-history">
       <h2>コメント履歴</h2>
       <div class = 'edit-btn'>
-        <p>コメントをクリックすると削除できます。</p>
         <% @comment.each do |comment| %>
         <%= link_to comment.content, "/posts/#{comment.post_id}" %>
         <% end %>
@@ -28,8 +28,12 @@
     </div>
     <div class = "bookmarks-history">
       <h2>ブックマーク履歴</h2>
-      <% @bookmark.each do |bookmark|  %>
-      <%= link_to bookmark.title, "/posts/#{bookmark.id}" %>
+      <% if @bookmark %>
+        <% @bookmark.each do |bookmark|  %>
+        <%= link_to bookmark.title, "/posts/#{bookmark.id}" %>
+        <% end %>
+      <% else %>
+        <%= puts "まだブックマークはありません。" %>
       <% end %>
     </div>
     <div class = "user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>
