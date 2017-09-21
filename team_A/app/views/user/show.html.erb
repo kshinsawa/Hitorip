@@ -1,6 +1,7 @@
 <div class = "user-show-wrapper top-main">
   <div class = "user-container">
     <div class = "user-img">
+      <img src="<%= "public/user_images/#{@user.image_name}" %>">
     </div>
     <div class = "user-name">
       <h2>ユーザ名</h2>
@@ -8,8 +9,12 @@
     </div>
     <div class = "user-post-history">
       <h2>投稿履歴</h2>
-      <% @post.each do |post| %>
-      <%= link_to post.title, "/posts/#{post.id}/edit" %>
+        <% if @post %>
+        <% @post.each do |post| %>
+        <%= link_to post.title, "/posts/#{post.id}/edit" %>
+        <% end %>
+      <% else %>
+        <p>まだ投稿がありません。Yukuateを投稿しよう。</p>
       <% end %>
     </div>
     <div class = "user-comment-history">

@@ -1,12 +1,9 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">編集する</h1>
-    <% @post.errors.full_massages.each do |message| %>
     <div class="form-error">
-      <%= message %>
     </div>
-    <% end %>
-    <%= form_tag("/posts/#{@post.id}/update") do %>
+    <%= form_tag "/posts/#{@post.id}/update", multipart: true do %>
     <div class="form">
       <div class="form-body">
         <input type="text" name="title" placeholder="タイトル" class="form-control" value="<%= @post.title %>">

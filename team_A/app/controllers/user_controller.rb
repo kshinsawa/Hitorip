@@ -19,6 +19,11 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    if params[:image_name]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image_name]
+      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    end
     @user.save
     session[:user_id] = @user.id
     redirect_to("/home/top")
@@ -31,6 +36,11 @@ class UserController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     @user.update_attributes(user_params)
+    if params[:image_name]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image_name]
+      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    end
     flash[:notice] = "編集しました"
     redirect_to user_path
   end

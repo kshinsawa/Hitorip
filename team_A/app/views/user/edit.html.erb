@@ -1,5 +1,5 @@
 <div class = "user-edit-wrapper top-main">
-  <%= form_tag ("/user/#{@user.id}"), {:method => :patch}, {multipart: true} do %>
+  <%= form_tag "/user/#{@user.id}", :method => :patch, multipart: true do %>
     <div class = "user-container">
       <div class = "user-img">
         <input name = "image_name" type = "file">
