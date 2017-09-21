@@ -13,7 +13,6 @@ class UserController < ApplicationController
     @bookmark = Post.joins("INNER JOIN bookmarks ON bookmarks.post_id = posts.id").where("bookmarks.user_id = ?", @current_user.id)
   end
 
-
   def new
     @user = User.new
   end

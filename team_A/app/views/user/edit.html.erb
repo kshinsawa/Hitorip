@@ -1,4 +1,4 @@
-<div class = "user-edit-wrapper">
+<div class = "user-edit-wrapper top-main">
   <%= form_tag ("/user/#{@user.id}"), {:method => :patch}, {multipart: true} do %>
     <div class = "user-container">
       <div class = "user-img">
@@ -10,7 +10,7 @@
       </div>
       <div class = "user-post-history">
         <h2>メールアドレス</h2>
-　　　　<input name = "email" value = "<%=@user.email%>">
+        <input name = "email" value = "<%=@user.email%>">
       </div>
       <div class = "user-comment-history">
         <h2>パスワード</h2>

@@ -5,19 +5,31 @@ Rails.application.routes.draw do
   get '/user/login_form' => 'user#login_form'
   resources :user
 
-#コメント削除のルーティング
-  post 'comment/:id' => 'comment#destroy'
+  # コメント作成
+  post 'comment/:id/create' => 'comment#create'
+  # コメント削除
+  post 'comment/:id/destroy' => 'comment#destroy'
 
+  # トップページ
   get 'home/top' => 'home#top'
+  # 紹介ページ
   get 'home/about' => 'home#about'
 
+  # ブックマーク登録
   post 'posts/:id/bookmark' => 'posts#bookmark'
+  # 投稿一覧表示
   get 'posts/index' => 'posts#index'
+  # 新規投稿ページ
   get 'posts/new' => 'posts#new'
+  # 新規投稿作成
   post 'posts/create' => 'posts#create'
+  # 投稿編集ページ
   get 'posts/:id/edit' => 'posts#edit'
+  # 投稿詳細ページ
   get 'posts/:id' => 'posts#show'
+  # 投稿編集
   post 'posts/:id/update' => 'posts#update'
+  # 投稿削除
   post 'posts/:id/destroy' => 'posts#destroy'
 
 end
