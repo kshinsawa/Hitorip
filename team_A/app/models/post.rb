@@ -13,9 +13,10 @@ class Post < ActiveRecord::Base
   where(category: category)
   }
 
+  has_many :bookmarks, :foreign_key => 'post_id'
   has_many :comments
   has_many :evaluations
-  belongs_to :user
+  belongs_to :user, :foreign_key => 'user_id'
 
   #validates_presence_of :title
   #validates_presence_of :image_name
