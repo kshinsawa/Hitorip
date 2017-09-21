@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   # ブックマーク登録
   post 'posts/:id/bookmark' => 'posts#bookmark'
+  # 評価
+  post 'posts/:id/evaluation' => 'posts#evaluation'
   # 投稿一覧表示
   get 'posts/index' => 'posts#index'
   # 新規投稿ページ
