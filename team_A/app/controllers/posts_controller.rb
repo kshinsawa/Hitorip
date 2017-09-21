@@ -69,7 +69,7 @@ class PostsController < ApplicationController
     if params[:image_name]
       @post.image_name = "#{@post.id}.jpg"
       image = params[:image_name]
-      File.binwrite("public/posts_images/#{@post.image_name}",image.read)
+      File.binwrite("/posts_images/#{@post.image_name}",image.read)
     end
     if @post.save
       flash[:notice] = "編集が完了しました"

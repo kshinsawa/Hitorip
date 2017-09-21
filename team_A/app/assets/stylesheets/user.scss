@@ -33,9 +33,9 @@ h2{
     text-align: center;
 }
 
-.user-img{
-    width: 80px;
-    height: 80px;
+.user-img img{
+    width: 160px;
+    height: 160px;
     border-radius: 40%;
     box-shadow: 0 2px 6px #c1ced7;
     margin: 20px 0 10px;
@@ -66,7 +66,7 @@ h2{
     background-color: white;
     overflow: hidden;
     box-shadow: 0 8px 6px -6px #c1ced7;
-  } 
+  }
 
 .user-edit-btn a {
   padding: 20px 30px;

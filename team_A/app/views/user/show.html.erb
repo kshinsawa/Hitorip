@@ -1,7 +1,7 @@
 <div class = "user-show-wrapper top-main">
   <div class = "user-container">
     <div class = "user-img">
-      <img src="<%= "public/user_images/#{@user.image_name}" %>">
+      <img src="<%= "/user_images/#{@user.image_name}" %>">
     </div>
     <div class = "user-name">
       <h2>ユーザ名</h2>
@@ -22,7 +22,7 @@
       <div class = 'edit-btn'>
         <p>コメントをクリックすると削除できます。</p>
         <% @comment.each do |comment| %>
-        <%= link_to comment.content, "/comment/#{@comment.ids}", {method: :post} %>
+        <%= link_to comment.content, "/posts/#{comment.post_id}" %>
         <% end %>
       </div>
     </div>
