@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  # before_action :authenticate_user, {only: [:new, :create, :destroy]}
+  before_action :authenticate_user, {only: [:new, :create, :destroy]}
 
   def index
     # すべての投稿を取得する
@@ -97,4 +97,18 @@ class PostsController < ApplicationController
     redirect_to posts_index_path
   end
 
+  def evaluation
+    @post = Post.find_by(id: params[:id])
+    @evaluation = Evaluation.new(
+      post_id: @post.id,
+      user_id: @current_user.id,
+      review: params[:review]
+    )
+    if @evaluation.save
+      puts @evaluation.post_id
+      puts @evaluation.user_id
+      puts @evaluation.review
+    end
+    redirect_to("/posts/index")
+  end
 end

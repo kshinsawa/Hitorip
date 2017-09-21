@@ -1,5 +1,4 @@
 class Post < ActiveRecord::Base
-
   #日付による絞り込み
   scope :get_by_date, ->(date) {
   where(date: date)
@@ -13,12 +12,16 @@ class Post < ActiveRecord::Base
   where(category: category)
   }
 
+  # 一つの投稿に対して多数のブックマークがつく
   has_many :bookmarks, :foreign_key => 'post_id'
+  # 一つの投稿に対して多数のコメントがつく
   has_many :comments, :foreign_key => 'post_id'
-  # 一つの投稿に対して多数の評価(★)がつく
-  has_many :evaluations
+  # 一つの投稿に対して多数の評価がつく
+  has_many :evaluations, :foreign_key => 'post_id'
+  # 投稿は一人のユーザーに従事する
   belongs_to :user, :foreign_key => 'user_id'
 
+  # 投稿に対するバリデーション設定
   validates_presence_of :title
   validates_presence_of :image_name
   validates_presence_of :content
