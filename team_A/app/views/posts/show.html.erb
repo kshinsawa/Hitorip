@@ -17,27 +17,21 @@
       </div>
     </div>
     <div class="sub-item posts-show-item">
-      <i class="fa fa-map-marker" aria-hidden="true"></i><%= @post.place %>
-      <i class="fa fa-calendar" aria-hidden="true"></i><%= @post.date %>
+      <i class="fa fa-map-marker" aria-hidden="true"></i><%= @post.place %></br>
+      <i class="fa fa-calendar" aria-hidden="true"></i><%= @post.date %></br>
       <i class="fa fa-bookmark-o" aria-hidden="true"></i>
       <% if @bookmark == nil %>
       <%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %>
       <% else %>
       <%=link_to "ユーザトップに戻る", "/user/#{@current_user.id}" %>
-      <% end %>
+      <% end %></br>
       <i class="fa fa-star-o" aria-hidden="true"></i>
-      <!-- reviewの計算結果が0もしくは分母が0で計算できない場合は表示できないので修正が必要 -->
-      <% review = Evaluation.where(post_id: @post.id).sum(:review) / Evaluation.where(post_id: @post.id).count(:review) %>
-      <% if review %>
-        <%= review %>
-      <% else %>
-
-      <% end %>
+      <%= @review.round(1) %>
     </div>
     <%= form_tag("/posts/#{@post.id}/evaluation", method: "post") do%>
       <div class="form">
         <div class="form-body">
-          <input type="submit" value="評価" class="form-control">
+          <input type="submit" value="tripしたい" class="form-control">
           <i class="fa fa-star-o" aria-hidden="true"></i>
           <select name="review" class="form-control">
             <option value="">--</option>
