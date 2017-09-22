@@ -23,12 +23,8 @@
       <% if @bookmark == nil %>
       <%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %>
       <% else %>
-<<<<<<< HEAD
       <p>既にブックマークしています</p>
       <div class = "btn return-btn"><%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %></div>
-=======
-      <%=link_to "ユーザトップに戻る", "/user/#{@current_user.id}" %>
->>>>>>> 4b431e15ffb8d73d6c22b655aee068e1fd980a07
       <% end %>
       <i class="fa fa-star-o" aria-hidden="true"></i>
       <!-- reviewの計算結果が0もしくは分母が0で計算できない場合は表示できないので修正が必要 -->

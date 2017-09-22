@@ -8,7 +8,7 @@
 }
 
 html {
-  font: 100%/1.5 'Lucida Grande', Meiryo, sans-serif;
+  font: 100%/1.5 'Century Gothic', Meiryo, sans-serif;
   line-height: 1.7;
   letter-spacing: 1px;
 }
@@ -64,6 +64,10 @@ body {
   clear: both;
 }
 
+.container h1{
+  font-size: 40px;
+  text-align: center;
+}
 /* ヘッダー ================================ */
 header {
   height: 64px;
@@ -260,3 +264,17 @@ header {
 
 
 /* ディスクリプション */
+.yukuate-title h2{
+  font-size: 24px;
+}
+
+.yukuate-title h2:hover{
+  .yukuate-description p{
+    font-size: 20px;
+  }
+}
+
+.yukuate-description p{
+  display: none;
+  font-size: 20px;
+}
