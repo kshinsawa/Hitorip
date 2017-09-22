@@ -23,8 +23,9 @@
       <% if @bookmark == nil %>
       <%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %>
       <% else %>
-      <%=link_to "ユーザトップに戻る", "/user/#{@current_user.id}" %>
-      <% end %></br>
+      <p>既にブックマークしています</p>
+      <div class = "btn return-btn"><%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %></div>
+      <% end %>
       <i class="fa fa-star-o" aria-hidden="true"></i>
       <%= @review.round(1) %>
     </div>

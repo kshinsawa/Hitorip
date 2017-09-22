@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  post '/bookmark/:id/destroy' => 'bookmark#destroy'
+
   post '/logout' => 'user#logout'
   post '/user/login' => 'user#login'
   get '/user/login_form' => 'user#login_form'

@@ -3,9 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-# あとで書き換える
+
 # $(function(){
-#  $('#tab-menu li').on('click', function(){
+# $('#tab-menu li').on('click', function(){
 #    if($(this).not('active')){
 #      // タブメニュー
 #      $(this).addClass('active').siblings('li').removeClass('active');
