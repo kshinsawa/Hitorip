@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     if @count == 0
       @review = ""
     else
-      @review = @sum / @count.to_f
+      @review = @sum / @count.to_f.round(1)
     end
   end
 
