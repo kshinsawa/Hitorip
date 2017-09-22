@@ -6,6 +6,11 @@
     <%= form_tag "/posts/#{@post.id}/update", multipart: true do %>
     <div class="form">
       <div class="form-body">
+        <% @post.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
         <input type="text" name="title" placeholder="タイトル" class="form-control" value="<%= @post.title %>">
         <input type="file" name="image_name" class="form-control" value="<% @post.image_name %>">
         <input type="date" name="date" class="form-control" value="<%= @post.date %>">
@@ -30,7 +35,7 @@
           <option value="リラックス">リラックス</option>
           <option value="その他">その他</option>
         </select>
-        <textarea name="content" placeholder="詳細" class="form-control" value = "<%=@post.content%>">
+        <textarea name="content" placeholder="詳細" class="form-control" value = "<%= @post.content %>">
           <%= @post.content %>
         </textarea>
         <input type="submit" value="編集を終える" class="form-control">

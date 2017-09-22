@@ -33,6 +33,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
@@ -55,7 +56,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿が完了しました"
       redirect_to("/posts/index")
     else
-      render("posts/edit")
+      render("posts/new")
     end
   end
 
@@ -82,7 +83,7 @@ class PostsController < ApplicationController
       flash[:notice] = "編集が完了しました"
       redirect_to("/posts/index")
     else
-      render("posts/edit")
+      render("posts/new")
     end
   end
 
