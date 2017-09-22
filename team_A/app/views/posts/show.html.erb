@@ -1,12 +1,7 @@
 <div class="main posts-show">
   <div class="container">
     <h6>投稿内容</h5>
-    <!-- <div class="posts-show-item">
-      <%= @post.title %>
-      <%= @post.date %>
-      <%= @post.place %>
-      <%= @post.content %>
-    </div> -->
+    </div>
     <div class="main-item posts-show-item">
       <div class="posts-img">
         <img src="<%= "/posts_images/#{@post.image_name}" %>">
@@ -45,9 +40,6 @@
         </div>
       </div>
     <% end %>
-    <!-- <div class="post-menus">
-      <%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %>
-    </div> -->
     <h6>コメント一覧</h6>
     <% @comments.each do |comment| %>
     <div class="posts-show-item">

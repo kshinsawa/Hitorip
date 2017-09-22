@@ -4,4 +4,5 @@ class Comment < ActiveRecord::Base
   # コメントは一人のユーザーに従事する
   belongs_to :user, :foreign_key => 'user_id'
 
+  validates_presence_of :content
 end
