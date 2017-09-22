@@ -4,7 +4,7 @@
       <h1><%= @user.user_name %></h1>
     </div>
     <div class = "user-img">
-      <img src="<%= "/user_images/#{@user.image_name}" %>">
+      <%= image_tag "#{@user.image_name}", :src => "/public/user_images/#{@user.image_name}"  %>
     </div>
     <div class = "user-post-history">
       <h2>投稿したYukuate</h2>
