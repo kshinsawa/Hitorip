@@ -1,20 +1,26 @@
-<div class = "user-registration-wrapper top-main">
+<div class = "user-wrapper top-main">
   <%= form_tag "/user", multipart: true do %>
     <div class = "container">
+      <div class="form-error">
+        <% @user.errors.full_messages.each do |message| %>
+        <%= message %>
+        <% end %>
+      </div>
+        <h1>新規登録する</h2>
     　　<h2>ユーザ情報を入力してください。</h2>
-      <div class = "user-img">
+      <div class = "user-img form-control flat">
         <input name = "image_name" type = "file">
       </div>
       <div class = "new-user-name">
-        <input name = "user_name" type="text" placeholder="ユーザ名" class="form-control flat">
+        <input name = "user_name" type="text" placeholder="ユーザ名" class="form-control">
       </div>
       <div class = "new-user-email">
         <h2></h2>
-        <input name = "email" type="text" placeholder="メールアドレス" class="form-control flat">
+        <input name = "email" type="text" placeholder="メールアドレス" class="form-control">
       </div>
       <div class = "new-user-password">
         <h2></h2>
-        <input name = "password" type="password" placeholder="パスワード" class="form-control flat">
+        <input name = "password" type="password" placeholder="パスワード" class="form-control">
       </div>
     </div>
       <div class = "registration-submit">

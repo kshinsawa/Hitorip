@@ -39,7 +39,8 @@ h2{
 
 // ユーザ詳細ページ
  .user-show-wrapper{
-    text-align: center;
+  text-align: center;
+  background-color: #f5f8fa;
 }
 
 .user-img img{
@@ -134,7 +135,7 @@ h2{
 .user-registration-wrapper{
   text-align: center;
   max-width: 600px;
-  margin: 60px auto;
+  margin: auto;
   padding: 10px 10px;
 }
 
@@ -145,10 +146,13 @@ h2{
 }
 
 /* ユーザ編集ページ */
-.user-edit-wrapper h2{
+.user-wrapper h2{
   color: #626063;
   font-size: 20px;
-  font-weight: 600;
+}
+
+.user-wrapper {
+  background-color: #f5f8fa;
 }
 
 
