@@ -150,7 +150,8 @@ header {
   background-position: center 50%;
   background-size: cover;
   background-image: url("/top.jpg");
-
+  // 動画背景にする場合
+  background: rgba(0, 0, 0, 0)
 }
 
 .top-message {
@@ -277,4 +278,27 @@ header {
 .yukuate-description p{
   display: none;
   font-size: 20px;
+}
+
+
+// 動画背景
+// body {
+// /*  IE8以下の代替の背景画像  */
+// background:url("bg.jpg") #333;
+// background-attachment:fixed;
+// background-size:cover;
+// position:relative;
+// }
+
+video {display:block;}
+
+#bg-video {
+position:fixed;
+right:0;
+bottom:0;
+min-width:100%;
+min-height:100%;
+width:auto;
+height:auto;
+z-index:-1;
 }
