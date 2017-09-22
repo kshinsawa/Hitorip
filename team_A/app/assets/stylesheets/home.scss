@@ -57,7 +57,7 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 60px auto;
   padding-left: 15px;
   padding-right: 15px;
@@ -150,7 +150,8 @@ header {
   background-position: center 50%;
   background-size: cover;
   background-image: url("/top.jpg");
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .top-message {
@@ -260,21 +261,4 @@ header {
   width: 100%;
   border-radius: 0 0 2px 2px;
   font-size: 14px;
-}
-
-
-/* ディスクリプション */
-.yukuate-title h2{
-  font-size: 24px;
-}
-
-.yukuate-title h2:hover{
-  .yukuate-description p{
-    font-size: 20px;
-  }
-}
-
-.yukuate-description p{
-  display: none;
-  font-size: 20px;
 }

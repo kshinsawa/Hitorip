@@ -22,11 +22,34 @@ class Post < ActiveRecord::Base
   belongs_to :user, :foreign_key => 'user_id'
 
   # 投稿に対するバリデーション設定
-  validates_presence_of :title
-  validates_presence_of :image_name
-  validates_presence_of :content
-  validates_presence_of :date
-  validates_presence_of :place
-  validates_presence_of :category
+  # validates_presence_of :title
+  # validates_presence_of :image_name
+  # validates_presence_of :content
+  # validates_presence_of :date
+  # validates_presence_of :place
+  # validates_presence_of :category
+
+  validate :add_error_posts
+
+  def add_error_posts
+    if title.blank?
+      errors[:base] << "タイトルを入力して下さい"
+    end
+    if image_name.blank?
+      errors[:base] << "画像を選択して下さい"
+    end
+    if content.blank?
+      errors[:base] << "詳細を入力を入力して下さい"
+    end
+    if date.blank?
+      errors[:base] << "日付を選択して下さい"
+    end
+    if place.blank?
+      errors[:base] << "場所を選択して下さい"
+    end
+    if category.blank?
+      errors[:base] << "カテゴリーを選択して下さい"
+    end
+  end
 
 end

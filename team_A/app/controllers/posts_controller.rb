@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     if @count == 0
       @review = ""
     else
-      @review = @sum / @count.to_f
+      @review = @sum / @count.to_f.round(1)
     end
   end
 
@@ -102,6 +102,7 @@ class PostsController < ApplicationController
       user_id: @current_user.id
     )
     @bookmark.save
+    flash[:notice] = "ブックマークしました。"
     redirect_to posts_index_path
   end
 
@@ -116,6 +117,7 @@ class PostsController < ApplicationController
       puts @evaluation.post_id
       puts @evaluation.user_id
       puts @evaluation.review
+      flash[:notice] = "レビューしました。"
     end
     redirect_to("/posts/index")
   end

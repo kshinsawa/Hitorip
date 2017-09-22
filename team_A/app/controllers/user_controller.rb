@@ -24,9 +24,12 @@ class UserController < ApplicationController
       image = params[:image_name]
       File.binwrite("public/user_images/#{@user.image_name}",image.read)
     end
-    @user.save
-    session[:user_id] = @user.id
-    redirect_to("/home/top")
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to("/home/top")
+    else
+      render (new_user_path)
+    end
   end
 
   def edit
