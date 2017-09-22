@@ -7,11 +7,7 @@ class CommentController < ApplicationController
       user_id: @current_user.id,
       content: params[:content]
     )
-    if @comment.save
-      puts @comment.user_id
-      puts @comment.post_id
-      puts @comment.content
-    end
+    @comment.save
     redirect_to("/posts/index")
   end
 

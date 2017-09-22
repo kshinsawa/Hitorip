@@ -1,12 +1,7 @@
 <div class="main posts-show">
   <div class="container">
     <h6>投稿内容</h5>
-    <!-- <div class="posts-show-item">
-      <%= @post.title %>
-      <%= @post.date %>
-      <%= @post.place %>
-      <%= @post.content %>
-    </div> -->
+    </div>
     <div class="main-item posts-show-item">
       <div class="posts-img">
         <img src="<%= "/posts_images/#{@post.image_name}" %>">
@@ -17,8 +12,8 @@
       </div>
     </div>
     <div class="sub-item posts-show-item">
-      <i class="fa fa-map-marker" aria-hidden="true"></i><%= @post.place %>
-      <i class="fa fa-calendar" aria-hidden="true"></i><%= @post.date %>
+      <i class="fa fa-map-marker" aria-hidden="true"></i><%= @post.place %></br>
+      <i class="fa fa-calendar" aria-hidden="true"></i><%= @post.date %></br>
       <i class="fa fa-bookmark-o" aria-hidden="true"></i>
       <% if @bookmark == nil %>
       <%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %>
@@ -27,18 +22,12 @@
       <div class = "btn return-btn"><%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %></div>
       <% end %>
       <i class="fa fa-star-o" aria-hidden="true"></i>
-      <!-- reviewの計算結果が0もしくは分母が0で計算できない場合は表示できないので修正が必要 -->
-      <% review = Evaluation.where(post_id: @post.id).sum(:review) / Evaluation.where(post_id: @post.id).count(:review) %>
-      <% if review %>
-        <%= review %>
-      <% else %>
-
-      <% end %>
+      <%= @review.round(1) %>
     </div>
     <%= form_tag("/posts/#{@post.id}/evaluation", method: "post") do%>
       <div class="form">
         <div class="form-body">
-          <input type="submit" value="評価" class="form-control">
+          <input type="submit" value="tripしたい" class="form-control">
           <i class="fa fa-star-o" aria-hidden="true"></i>
           <select name="review" class="form-control">
             <option value="">--</option>
@@ -51,9 +40,6 @@
         </div>
       </div>
     <% end %>
-    <!-- <div class="post-menus">
-      <%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %>
-    </div> -->
     <h6>コメント一覧</h6>
     <% @comments.each do |comment| %>
     <div class="posts-show-item">

@@ -23,9 +23,17 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @bookmark = Bookmark.find_by(user_id: @current_user.id)
     @comments = Comment.where(post_id: params[:id])
+    @sum = Evaluation.where(post_id: @post.id).sum(:review)
+    @count = Evaluation.where(post_id: @post.id).count(:review)
+    if @count == 0
+      @review = ""
+    else
+      @review = @sum / @count.to_f
+    end
   end
 
   def new
+    @post = Post.new
   end
 
   def create
@@ -48,7 +56,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿が完了しました"
       redirect_to("/posts/index")
     else
-      render("posts/edit")
+      render("posts/new")
     end
   end
 
@@ -75,7 +83,7 @@ class PostsController < ApplicationController
       flash[:notice] = "編集が完了しました"
       redirect_to("/posts/index")
     else
-      render("posts/edit")
+      render("posts/new")
     end
   end
 
