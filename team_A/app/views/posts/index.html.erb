@@ -1,10 +1,11 @@
 <div class="main posts-index">
   <div class="container">
     <% @posts.each do |post| %>
-      <div class = "posts-img">
-      </div>
       <div class="posts-index-item">
         <%= link_to post.title, "/posts/#{post.id}" %>
+        <div class="posts-img">
+          <img src="<%= "/posts_images/#{post.image_name}" %>">
+        </div>
       </div>
       <div>
         <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>

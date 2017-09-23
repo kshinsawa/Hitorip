@@ -11,6 +11,7 @@ class UserController < ApplicationController
     @post = Post.where(user_id: @current_user.id)
     @comment = Comment.where(user_id: @current_user.id)
     @bookmark = Post.joins("INNER JOIN bookmarks ON bookmarks.post_id = posts.id").where("bookmarks.user_id = ?", @current_user.id)
+    puts @user.image_name
   end
 
   def new
@@ -19,9 +20,9 @@ class UserController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if params[:image_name]
-      @user.image_name = "#{@user.id}.jpg"
-      image = params[:image_name]
+    if params[:image]
+      @user.image_name = "#{@user.user_name}.jpg"
+      image = params[:image]
       File.binwrite("public/user_images/#{@user.image_name}",image.read)
     end
     @user.save
@@ -36,10 +37,11 @@ class UserController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     @user.update_attributes(user_params)
-    if params[:image_name]
-      @user.image_name = "#{@user.id}.jpg"
-      image = params[:image_name]
-      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    if params[:image]
+      @user.image_name = "#{@user.user_name}.jpg"
+      image = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}" ,image.read)
+      puts @user.image_name
     end
     flash[:notice] = "編集しました"
     redirect_to user_path
