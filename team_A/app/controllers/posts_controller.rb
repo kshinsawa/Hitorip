@@ -39,18 +39,17 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(
       title: params[:title],
-      image_name: params[:image_name],
       date: params[:date],
       place: params[:place],
       category: params[:category],
       content: params[:content],
       user_id: session[:user_id],
-      image_name: params[:image_name]
     )
-    if params[:image_name]
-      @post.image_name = "#{@post.id}.jpg"
-      image = params[:image_name]
-      File.binwrite("public/posts_images/#{@post.image_name}",image.read)
+    if params[:image]
+      # 投稿タイトルは(おそらく)ユニークなので投稿タイトルを画像名とする
+      @post.image_name = "#{@post.title}.jpg"
+      image = params[:image]
+      File.binwrite("public/posts_images/#{@post.image_name}", image.read)
     end
     if @post.save
       flash[:notice] = "投稿が完了しました"
