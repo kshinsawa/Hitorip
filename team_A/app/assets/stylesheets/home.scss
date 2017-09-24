@@ -298,6 +298,7 @@ height:auto;
 z-index:-1;
 }
 
+/* モーダル */
 #modal-overlay{
 	z-index:1;
 	display:none;
@@ -323,6 +324,7 @@ z-index:-1;
 #modal-content p{
   color: #626063;
   font-size: 18px;
+  margin: 10px auto;
 }
 
 .button-link{
@@ -335,12 +337,17 @@ z-index:-1;
 	color:#fff;
 }
 
+/* 閉じるボタン */
 #modal-close{
   margin: 10px auto;
   padding: 20px 30px;
   background-color: #202f55;
   border-radius: 4px;
   color: #fff;
+}
+
+#modal-close a{
+  font-size: 18px;
 }
 
 
