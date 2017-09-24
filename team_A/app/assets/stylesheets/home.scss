@@ -150,13 +150,8 @@ header {
   background-position: center 50%;
   background-size: cover;
   background-image: url("/top.jpg");
-<<<<<<< HEAD
   // 動画背景にする場合
   background: rgba(0, 0, 0, 0)
-=======
-  margin-left: auto;
-  margin-right: auto;
->>>>>>> css-snozaki-3
 }
 
 .top-message {
@@ -267,24 +262,6 @@ header {
   border-radius: 0 0 2px 2px;
   font-size: 14px;
 }
-<<<<<<< HEAD
-
-
-/* ディスクリプション */
-.yukuate-title h2{
-  font-size: 24px;
-}
-
-.yukuate-title h2:hover{
-  .yukuate-description p{
-    font-size: 20px;
-  }
-}
-
-.yukuate-description p{
-  display: none;
-  font-size: 20px;
-}
 
 
 // 動画背景
@@ -308,5 +285,3 @@ width:auto;
 height:auto;
 z-index:-1;
 }
-=======
->>>>>>> css-snozaki-3

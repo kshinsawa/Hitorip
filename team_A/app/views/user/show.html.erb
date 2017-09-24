@@ -8,14 +8,14 @@
     </div>
     <div class = "user-post-history">
       <h2>投稿したYukuate</h2>
-        <% if @post %>
-        <% @post.each do |post| %>
-        <li><%= link_to post.title, "/posts/#{post.id}/edit" %></li>
-        <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>
-        <i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %>
+        <% if @post.blank? %>
+          <p>まだ投稿がありません。Yukuateを投稿しよう。</p>
+        <% else %>
+          <% @post.each do |post| %>
+          <li><%= link_to post.title, "/posts/#{post.id}/edit" %></li>
+          <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>
+          <i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %>
         <% end %>
-      <% else %>
-        <p>まだ投稿がありません。Yukuateを投稿しよう。</p>
       <% end %>
     </div>
     <div class = "user-comment-history">
@@ -29,14 +29,14 @@
     <div class = "user-bookmark-history">
       <h2>ブックマークしたYukuate</h2>
       <div class="content-list">
-      <% if @bookmark %>
+      <% if @bookmark.nil? %>
+        <p><%= p "まだブックマークはありません。" %></p>
+      <% else %>
         <% @bookmark.each do |bookmark|  %>
         <%= link_to bookmark.title, "/posts/#{bookmark.id}" %></br>
         <i class="fa fa-map-marker" aria-hidden="true"></i><%= bookmark.place %></br>
         <i class="fa fa-calendar" aria-hidden="true"></i><%= bookmark.date %>
         <% end %>
-      <% else %>
-        <%= puts "まだブックマークはありません。" %>
       <% end %>
     </div>
     </div>
@@ -44,7 +44,7 @@
   </div>
  </div>
 
- <!-- タブメニュー
+<!-- タブメニュー
  <ul id="tab-menu">
    <li class="active">タブ1</li>
    <li>タブ2</li>
@@ -56,5 +56,4 @@
    <div class="active">タブ1の中身</div>
    <div>タブ2の中身</div>
    <div>タブ3の中身</div>
- </div>
- -->
+ </div> -->
