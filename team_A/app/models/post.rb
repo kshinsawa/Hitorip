@@ -29,6 +29,8 @@ class Post < ActiveRecord::Base
   # validates_presence_of :place
   # validates_presence_of :category
 
+  default_scope -> { order(created_at: :desc) }
+
   validate :add_error_posts
 
   def add_error_posts

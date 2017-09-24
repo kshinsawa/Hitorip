@@ -1,5 +1,5 @@
 <div class = "user-show-wrapper user-top-main">
-  
+
   <div class = "user-container">
     <div class = "user-name">
       <h1><%= @user.user_name %></h1>
@@ -9,13 +9,13 @@
       <img src="<%= "/user_images/#{@user.user_name}.jpg" %>">
     </div>
     <div class = "btn user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>
-    
+
     <ul id="tab-menu">
       <li class="active">投稿したYukuate</li>
       <li>コメントしたYukuate</li>
       <li>ブックマーク</li>
-    </ul>   
-    
+    </ul>
+
     <div id="tab-box">
       <div class="user-post-history active">
           <% if @post %>
@@ -28,7 +28,7 @@
           <p>まだ投稿がありません。Yukuateを投稿しよう。</p>
         <% end %>
       </div>
-      <div class = "user-comment-history">  
+      <div class = "user-comment-history">
         <% @comment.each do |comment| %>
           <li><%= link_to comment.content, "/posts/#{comment.post_id}" %></li>
         <% end %>
@@ -45,9 +45,6 @@
         <% end %>
       </div>
     </div>
-  
+
   </div>
  </div>
-
-
- 
