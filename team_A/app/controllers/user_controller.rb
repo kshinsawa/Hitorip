@@ -56,7 +56,7 @@ class UserController < ApplicationController
   def login
     puts params
     @user = User.find_by(
-      email: params[:email],
+      user_name: params[:user_name],
       password: params[:password]
     )
     if @user
@@ -64,7 +64,7 @@ class UserController < ApplicationController
       flash[:notice] = "ログインしました"
       redirect_to home_top_path
     else
-      @email = params[:email]
+      @user_name = params[:user_name]
       @password = params[:password]
       render("home/top")
     end

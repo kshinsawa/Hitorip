@@ -1,7 +1,5 @@
 <div class="main posts-show">
   <div class="container">
-    <h6>Yukuate</h5>
-
     <div class="main-item posts-show-item">
       <div class="posts-img">
         <img src="<%= "/posts_images/#{@post.image_name}" %>">
@@ -14,14 +12,15 @@
     <div class ="sub-item posts-show-item">
       <i class="fa fa-map-marker" aria-hidden="true"></i><%= @post.place %></br>
       <i class="fa fa-calendar" aria-hidden="true"></i><%= @post.date %></br>
-      <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+      <i class="fa fa-bookmark-o" aria-hidden="true"></i></br>
       <% if @bookmark == nil %>
-      <%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %></br>
+        <i class="fa fa-star-o" aria-hidden="true"></i><%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %></br>
       <% else %>
-      <p>既にブックマークしています</p>
-      <div class = "btn return-btn"><%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %></div>
+        <p style="color:#ff0000" >既にブックマークしています</p>
+      <div class = "return-btn">
+      　<%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %>
+      </div>
       <% end %>
-      <i class="fa fa-star-o" aria-hidden="true"></i>
       <%= @review %>
     </div>
     <%= form_tag("/posts/#{@post.id}/evaluation", method: "post") do%>

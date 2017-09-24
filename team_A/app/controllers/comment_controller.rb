@@ -8,7 +8,10 @@ class CommentController < ApplicationController
       content: params[:content]
     )
     @comment.save
-    redirect_to("/posts/index")
+    if @comment.save
+      flash[:notice] = "コメントしました"
+      redirect_to("/posts/index")
+    end
   end
 
   def destroy
