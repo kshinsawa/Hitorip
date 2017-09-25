@@ -10,6 +10,8 @@ class UserController < ApplicationController
     @user = User.find_by(id: params[:id])
     @post = Post.where(user_id: @current_user.id)
     @comment = Comment.where(user_id: @current_user.id)
+    # puts @comment.post_id
+    # @commented_post = Post.joins("INNER JOIN comments ON comments.post_id = posts.id").where("comments.post_id = ?", @comment.post_id)
     @bookmark = Post.joins("INNER JOIN bookmarks ON bookmarks.post_id = posts.id").where("bookmarks.user_id = ?", @current_user.id)
     puts @user.image_name
   end
@@ -56,7 +58,7 @@ class UserController < ApplicationController
   def login
     puts params
     @user = User.find_by(
-      email: params[:email],
+      user_name: params[:user_name],
       password: params[:password]
     )
     if @user
@@ -64,7 +66,7 @@ class UserController < ApplicationController
       flash[:notice] = "ログインしました"
       redirect_to home_top_path
     else
-      @email = params[:email]
+      @user_name = params[:user_name]
       @password = params[:password]
       render("home/top")
     end

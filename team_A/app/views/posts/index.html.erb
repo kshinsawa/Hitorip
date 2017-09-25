@@ -2,15 +2,13 @@
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
-        <%= link_to post.title, "/posts/#{post.id}" %>
         <div class="posts-img">
-          <img src="<%= "/posts_images/#{post.image_name}" %>">
+          <img src="<%= "/posts_images/#{post.image_name}.jpg" %>">
         </div>
-      </div>
-      <div>
+        <%= link_to post.title, "/posts/#{post.id}" %></br>
         <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>
         <i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %>
       </div>
-    <% end %>
+      <% end %>
   </div>
 </div>
