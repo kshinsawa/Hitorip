@@ -23,10 +23,11 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @bookmark = Bookmark.find_by(user_id: @current_user.id)
     @comments = Comment.where(post_id: params[:id])
+    @comment_user = User.joins("INNER JOIN comments ON comments.user_id = users.id").where("comments.post_id = ?", @post.id)
     @sum = Evaluation.where(post_id: @post.id).sum(:review)
     @count = Evaluation.where(post_id: @post.id).count(:review)
     if @count == 0
-      @review = ""
+      @review = "まだレビューはありません。レビューしてみよう。"
     else
       @review = @sum / @count.to_f.round(1)
     end

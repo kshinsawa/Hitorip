@@ -1,5 +1,6 @@
 <div class="main posts-index">
   <div class="container">
+    <% if @posts.present? %>
     <% @posts.each do |post| %>
       <div class="posts-index-item">
         <div class="posts-img">
@@ -9,6 +10,10 @@
         <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>
         <i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %>
       </div>
+        <% end %>
+      <% else %>
+        <h1>検索条件と一致する投稿はありません。</h1>
+        <%= link_to "ホームへ戻る", home_top_path %>
       <% end %>
   </div>
 </div>

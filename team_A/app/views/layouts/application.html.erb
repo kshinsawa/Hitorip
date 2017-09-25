@@ -22,7 +22,8 @@
         <%= link_to("タイムライン", "/posts/index") %>
         </li>
         <li>
-          <%= link_to("Yukuate", "/posts/new") %>
+          <!-- <a href="/posts/new"></a> -->
+          <%= link_to("Yukuateを投稿する", "/posts/new") %>
         </li>
         <li>
           <%= link_to @current_user.user_name, "/user/#{@current_user.id}" %>
