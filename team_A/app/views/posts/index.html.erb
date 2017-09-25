@@ -7,8 +7,9 @@
           <img src="<%= "/posts_images/#{post.image_name}.jpg" %>">
         </div>
         <%= link_to post.title, "/posts/#{post.id}" %></br>
-        <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>
-        <i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %>
+        <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></li>
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %></li>
+        <li><i class="fa fa-tag" aria-hidden="true"></i><%= post.category %></li>
       </div>
         <% end %>
       <% else %>
