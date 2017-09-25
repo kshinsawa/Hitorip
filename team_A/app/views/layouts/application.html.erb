@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hitrip | ひとりっぷ</title>
+    <title>Hitrip (ヒトリップ) | お気に入りのYukuateを探そう</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -32,9 +32,6 @@
           <%= link_to('ログアウト', "/logout", {method: :post}) %>
         </li>
         <% else %>
-        <li>
-          <%= link_to("Hitripとは", "/home/about") %>
-        </li>
         <li>
           <%= link_to('新規登録', '/user/new') %>
         </li>

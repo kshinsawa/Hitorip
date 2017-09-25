@@ -10,18 +10,21 @@
       </div>
     </div>
     <div class ="sub-item posts-show-item">
-      <i class="fa fa-map-marker" aria-hidden="true"></i><%= @post.place %></br>
-      <i class="fa fa-tag" aria-hidden="true"><%= @post.category %></i></br>
-      <i class="fa fa-calendar" aria-hidden="true"></i><%= @post.date %></br>
+      <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= @post.place %></li>
+      <li><i class="fa fa-tag" aria-hidden="true"><%= @post.category %></i></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><%= @post.date %></li>
       <% if @bookmark == nil %>
-        <i class="fa fa-bookmark-o" aria-hidden="true"></i><%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %></br>
+        <li><i class="fa fa-bookmark-o" aria-hidden="true"></i><%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %></li>
       <% else %>
-        <p style="color:#ff0000" >既にブックマークしています</p>
+        <li><p style="color:#ff0000" >既にブックマークしています</p></li>
       <div class = "return-btn">
-        <%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %>
+        <li><%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %></li>
       </div>
       <% end %>
-        <i class="fa fa-star-o" aria-hidden="true"><%= @review %></i>
+        <li><i class="fa fa-star-o" aria-hidden="true"><%= @review %></i></li>
+      <% if @current_user %>
+        <li><%= link_to "投稿を編集する", "/posts/#{@post.id}/edit" %></li>
+      <% end %>
     </div>
     <%= form_tag("/posts/#{@post.id}/evaluation", method: "post") do%>
       <div class="form">
@@ -43,9 +46,12 @@
     <% @comment_user.each do |comment_user| %>
     <% @comments.each do |comment| %>
     <div class="posts-show-item">
-      <%= comment_user.user_name %></br>
-      <%= comment.content %></br>
-      <%= comment.created_at %>
+      <li><%= comment_user.user_name %></li>
+      <li><%= comment.content %></li>
+      <li><%= comment.created_at %></li>
+      <% if @current_user %>
+        <li><%= link_to "コメントを削除する", "/comment/#{comment.id}/destroy", method: :post %></li>
+      <% end %>
     </div>
     <% end %>
     <% end %>

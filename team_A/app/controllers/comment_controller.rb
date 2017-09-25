@@ -18,7 +18,8 @@ class CommentController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     @comment.user_id = session[:user_id]
     @comment.destroy
-    redirect_to(user_edit_path)
+    flash[:notice] = "コメントを削除しました"
+    redirect_to(user_path)
   end
 
 end
