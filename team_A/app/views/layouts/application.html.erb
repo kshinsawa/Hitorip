@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hitrip | ヒトリップ</title>
+    <title>Hitrip | ひとりっぷ</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -16,14 +16,12 @@
       </div>
       <ul class="header-menus">
         <li>
-          <!-- <a href="#"></a> -->
         </li>
         <% if @current_user %>
         <li>
         <%= link_to("タイムライン", "/posts/index") %>
         </li>
         <li>
-          <!-- <a href="/posts/new"></a> -->
           <%= link_to("Yukuate", "/posts/new") %>
         </li>
         <li>
@@ -34,7 +32,6 @@
         </li>
         <% else %>
         <li>
-          <!-- <a href="/home/about">ひとりっぷとは</a> -->
           <%= link_to("Hitripとは", "/home/about") %>
         </li>
         <li>

@@ -7,7 +7,8 @@
   <div class="top-message">
     <h3>ひとりの時間を、楽しもう</h3>
     <p>Hitripで探そう</p>
-    <%= form_tag("/posts/index", method: "get") do%>
+    <%= render "form" %>
+    <!-- <%= form_tag("/posts/index", method: "get") do%>
     <form class="navbar-form navbar-center" role="search">
       <div class="form-group">
         <input type="date" name="date" class="form-control">
@@ -23,12 +24,16 @@
         </select>
         <select name="category" class="form-control">
           <option value="">カテゴリを選ぶ</option>>
-          <option value="イベント">イベント</option>
-          <option value="エンタメ">エンタメ</option>
-          <option value="カフェ">カフェ</option>
-          <option value="アート">アート</option>
-          <option value="リラックス">リラックス</option>
-          <option value="その他">その他</option>
+            <optgroup label="イベント">
+              <option value="ライブ">ミュージック</option>
+              <option value="アート">アート</option>
+            </optgroup>
+            <optgroup label="スポット">
+              <option value="カフェ">カフェ</option>
+              <option value="雑貨屋">公共施設</option>
+              <option value="公共施設">公共施設</option>
+            </optgroup>
+              <option value="その他">その他</option>
         </select>
         <!-- フリーワード検索 -->
         <!-- <input type="text" class="form-control" placeholder="フリーワード"> -->
@@ -39,6 +44,7 @@
       </button>
       <p><a id="modal-open" class="button-link">Yukuate?</a></p>
     </form>
+    <% end %> -->
 
     <div id="modal-content">
       <p>Yukuateとは</p></br>
@@ -47,6 +53,5 @@
       <p><a id="modal-close" class="button-link">閉じる</a></p>
     </div>
 
-    <% end %>
   </div>
 </div>
