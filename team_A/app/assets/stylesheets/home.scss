@@ -234,7 +234,7 @@ header {
   color: #57575f;
   font-size: 16px;
   letter-spacing: 2px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .form textarea {
@@ -245,15 +245,20 @@ header {
 }
 
 .form input[type="submit"] {
-  background-color: #202f55;
-  color:#e8ece9;
+  background-color: #6c9bd2;
+  color: #626063;
   cursor: pointer;
   font-weight: 300;
   width: 120px;
-  border-radius: 2px;
+  border-radius: 4px;
   margin-top: 8px;
   margin-bottom: 0;
   float: right;
+}
+
+.form input[type="submit"]:hover{
+  background-color: #202f55;
+  color:#e8ece9;
 }
 
 .form-body:after {

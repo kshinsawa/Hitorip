@@ -61,7 +61,7 @@ h2{
   background-size: cover;
   background-image: url("/top.jpg");
   // 動画背景にする場合
-  background: rgba(0, 0, 0, 0)
+  // background: rgba(0, 0, 0, 0)
 }
 
 .user-img img{
@@ -84,7 +84,7 @@ h2{
     padding: 20px 30px;
     background-color: #f5f8fa;
     overflow: hidden;
-    /* box-shadow: 0 2px 6px  #c1ced7; */
+    border-bottom: 1px solid #d3d6dd;
   }
 
   .user-comment-history {
