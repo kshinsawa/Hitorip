@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   post 'comment/:id/destroy' => 'comment#destroy'
 
   # トップページ
-  get 'home/top' => 'home#top'
+  get '/' => 'home#top'
   # 紹介ページ
-  get 'home/about' => 'home#about'
+  get '/about' => 'home#about'
 
   # ブックマーク登録
   post 'posts/:id/bookmark' => 'posts#bookmark'

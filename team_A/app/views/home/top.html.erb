@@ -3,40 +3,25 @@
 <source src="/bg-movie.webm" type="video/webm">
 </video> -->
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#tab-menu li').on('click', function(){
+       if($(this).not('active')){
+         // タブメニュー
+         $(this).addClass('active').siblings('li').removeClass('active');
+         // タブの中身
+         var index = $('#tab-menu li').index(this);
+         $('#tab-box div').eq(index).addClass('active').siblings('div').removeClass('active');
+       }
+    });
+});
+</script>
+
 <div class="main top-main">
   <div class="top-message">
     <h3>ひとりの時間を、楽しもう</h3>
     <p>Hitripで探そう</p>
     <%= render "form" %>
-    <!-- <%= form_tag("/posts/index", method: "get") do%>
-    <form class="navbar-form navbar-center" role="search">
-      <div class="form-group">
-        <input type="date" name="date" class="form-control">
-        <select name="place" class="form-control">
-
-        </select>
-        <select name="category" class="form-control">
-          <option value="">カテゴリを選ぶ</option>>
-            <optgroup label="イベント">
-              <option value="ライブ">ミュージック</option>
-              <option value="アート">アート</option>
-            </optgroup>
-            <optgroup label="スポット">
-              <option value="カフェ">カフェ</option>
-              <option value="雑貨屋">公共施設</option>
-              <option value="公共施設">公共施設</option>
-            </optgroup>
-              <option value="その他">その他</option>
-        </select>
-
-      </div>
-      <button type="submit" class="btn btn-default">Yukuateを探す？
-
-      </button>
-      <p><a id="modal-open" class="button-link">Yukuate?</a></p>
-    </form>
-    <% end %> -->
-
     <div id="modal-content">
       <h3 style="color:#626063">Yukuate (ユクアテ) とは</h3>
       <p>おひとりさまでも楽しめるイベントやスポットの総称です。</br>

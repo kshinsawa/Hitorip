@@ -62,7 +62,7 @@ class UserController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
-      redirect_to home_top_path
+      redirect_to("/")
     else
       @email = params[:email]
       @password = params[:password]
@@ -75,7 +75,7 @@ class UserController < ApplicationController
     if @user
       session[:user_id] = nil
       flash[:notice] = "ログアウトしました"
-      redirect_to('/home/top')
+      redirect_to('/')
     end
   end
 

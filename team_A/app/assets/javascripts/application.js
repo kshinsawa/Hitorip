@@ -31,7 +31,7 @@ $(function(){
 $(function(){
   $("#modal-open").click(function(){
     $(this).blur() ;	//ボタンからフォーカスを外す
-    if($("#modal-overlay")[0])$("#modal-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する    
+    if($("#modal-overlay")[0])$("#modal-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する
       //オーバーレイ用のHTMLコードを、[body]内の最後に生成する
       $("body").append('<div id="modal-overlay"></div>');
       //コンテンツをセンタリングする
@@ -40,7 +40,7 @@ $(function(){
       $("#modal-overlay").fadeIn("slow");
       //[$modal-content]をフェードインさせる
       $("#modal-content").fadeIn("slow");
-      
+
       $("#modal-overlay,#modal-close").unbind().click(function(){
         //[#modal-overlay]、または[#modal-close]をクリックしたら起こる処理
         //[#modal-overlay]と[#modal-close]をフェードアウトする

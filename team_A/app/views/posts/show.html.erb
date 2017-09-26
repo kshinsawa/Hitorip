@@ -17,7 +17,7 @@
         <li><i class="fa fa-bookmark-o" aria-hidden="true"></i><%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %></li>
       <% else %>
         <li><p style="color:#ff0000" >既にブックマークしています</p></li>
-      <div class = "return-btn">
+      <div class = "btn user-edit-btn">
         <li><%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %></li>
       </div>
       <% end %>
@@ -29,7 +29,7 @@
     <%= form_tag("/posts/#{@post.id}/evaluation", method: "post") do%>
       <div class="form">
         <div class="form-body">
-          <input type="submit" value="tripしたい" class="form-control">
+          <input type="submit" value="レビューする" >
           <i class="fa fa-star-o" aria-hidden="true"></i>
           <select name="review" class="form-control">
             <option value="">--</option>
@@ -59,7 +59,7 @@
       <div class="form">
         <div class="form-body">
           <input type="text" name="content" placeholder="コメント内容" class="form-control">
-          <input type="submit" value="コメント" class="form-control">
+          <input type="submit" value="コメント" >
         </div>
       </div>
     <% end %>
