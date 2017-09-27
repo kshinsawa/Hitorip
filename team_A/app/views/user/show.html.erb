@@ -45,6 +45,9 @@ $(function(){
       </div>
       <div class = "user-comment-history">
         <% if @comment.present? %>
+          <% @comment_post.each do |comment_post| %>
+            <%= link_to comment_post.title, "/posts/#{comment_post.id}" %>
+          <% end %>
           <% @comment.each do |comment| %>
           <li><%= link_to comment.content, "/posts/#{comment.post_id}" %></li>
         <% end %>
