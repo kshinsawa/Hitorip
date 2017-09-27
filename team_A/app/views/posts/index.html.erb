@@ -4,7 +4,7 @@
     <% @posts.each do |post| %>
       <div class="posts-index-item col-3">
         <div class="posts-img">
-          <img src="<%= "/posts_images/#{post.image_name}" %>">
+          <%= link_to image_tag("/posts_images/#{post.image_name}"), "/posts/#{post.id}" %>
         </div>
         <%= link_to post.title, "/posts/#{post.id}" %></br>
         <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></li>
