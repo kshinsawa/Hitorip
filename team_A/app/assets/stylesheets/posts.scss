@@ -55,6 +55,11 @@
     object-fit: cover;
 }
 
+.col-3 {
+  width: 33.3%;
+  height: 500px;
+  float: left;
+}
 
 /* posts/show ================================ */
 .posts-show form {

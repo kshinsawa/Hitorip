@@ -11,6 +11,10 @@ class Post < ActiveRecord::Base
   scope :get_by_category, ->(category) {
   where(category: category)
   }
+  # コンテンツ(フリーワード)による絞り込み
+  scope :get_by_content, ->(content) {
+  where("content like ?", "%#{content}%")
+  }
 
   # 一つの投稿に対して多数のブックマークがつく
   has_many :bookmarks, :foreign_key => 'post_id'

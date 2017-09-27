@@ -2,7 +2,7 @@
   <div class="container">
     <% if @posts.present? %>
     <% @posts.each do |post| %>
-      <div class="posts-index-item">
+      <div class="posts-index-item col-3">
         <div class="posts-img">
           <img src="<%= "/posts_images/#{post.image_name}.jpg" %>">
         </div>

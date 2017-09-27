@@ -17,6 +17,10 @@ class PostsController < ApplicationController
     if params[:category].present?
     @posts = @posts.get_by_category params[:category]
     end
+    # コンテンツ(フリーワード)で絞る
+    if params[:content].present?
+    @posts = @posts.get_by_content params[:content]
+    end
   end
 
   def show
