@@ -8,9 +8,9 @@ class UserController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @post = Post.where(user_id: @current_user.id)
-    @comment = Comment.where(user_id: @current_user.id)
-    @bookmark = Post.joins("INNER JOIN bookmarks ON bookmarks.post_id = posts.id").where("bookmarks.user_id = ?", @current_user.id)
+    @post = Post.where(user_id: @user.id)
+    @comment = Comment.where(user_id: @user.id)
+    @bookmark = Post.joins("INNER JOIN bookmarks ON bookmarks.post_id = posts.id").where("bookmarks.user_id = ?", @user.id)
     puts @user.image_name
   end
 
@@ -27,7 +27,7 @@ class UserController < ApplicationController
     end
     if @user.save
       session[:user_id] = @user.id
-      redirect_to("/home/top")
+      redirect_to("/")
     else
       render (new_user_path)
     end
@@ -66,7 +66,8 @@ class UserController < ApplicationController
     else
       @email = params[:email]
       @password = params[:password]
-      render("home/top")
+      flash[:notice] = "メールアドレスもしくはパスワードが正しくありません"
+      render("user/login_form")
     end
   end
 

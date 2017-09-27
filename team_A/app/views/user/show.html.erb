@@ -1,3 +1,17 @@
+<script>
+$(function(){
+    $('#tab-menu li').on('click', function(){
+       if($(this).not('active')){
+         // タブメニュー
+         $(this).addClass('active').siblings('li').removeClass('active');
+         // タブの中身
+         var index = $('#tab-menu li').index(this);
+         $('#tab-box div').eq(index).addClass('active').siblings('div').removeClass('active');
+       }
+    });
+});
+</script>
+
 <div class = "user-show-wrapper user-top-main">
 
   <div class = "user-container">
@@ -8,8 +22,9 @@
       <!-- どうやら@user.image_nameがnilらしい。応急処置として↓。 -->
       <img src="<%= "/user_images/#{@user.user_name}.jpg" %>">
     </div>
-    <div class = "btn user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>
-
+    <% if @current_user.id == @user.id %>
+      <div class = "btn user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>
+    <% end %>
     <ul id="tab-menu">
       <li class="active">投稿したYukuate</li>
       <li>コメントしたYukuate</li>
@@ -18,7 +33,7 @@
 
     <div id="tab-box">
       <div class="user-post-history active">
-          <% if @post %>
+          <% if @post != nil %>
           <% @post.each do |post| %>
           <li><%= link_to post.title, "/posts/#{post.id}" %></li>
           <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>

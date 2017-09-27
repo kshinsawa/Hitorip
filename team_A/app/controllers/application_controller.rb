@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       user_name: params[:user_name],
       email: params[:email]
     )
-    if @user
+    if @user.present?
       flash[:notice] = "既に登録されています"
       redirect_to new_user_path
     end

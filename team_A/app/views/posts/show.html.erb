@@ -7,12 +7,14 @@
       <div class="content">
         <h5><%= @post.title %></h5>
         <p><%= @post.content %></p>
+        <p><%= link_to @user.user_name, "/user/#{@user.id}" %></p>
       </div>
     </div>
     <div class ="sub-item posts-show-item">
       <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= @post.place %></li>
       <li><i class="fa fa-tag" aria-hidden="true"><%= @post.category %></i></li>
       <li><i class="fa fa-calendar" aria-hidden="true"></i><%= @post.date %></li>
+      <li><i class="fa fa-star-o" aria-hidden="true"><%= @review %></i></li>
       <% if @bookmark == nil %>
         <li><i class="fa fa-bookmark-o" aria-hidden="true"></i><%=link_to "ブックマーク", "/posts/#{@post.id}/bookmark", {method: :post} %></li>
       <% else %>
@@ -21,7 +23,6 @@
         <li><%=link_to "ブックマークを取り消す", "/bookmark/#{@bookmark.id}/destroy", {method: :post} %></li>
       </div>
       <% end %>
-        <li><i class="fa fa-star-o" aria-hidden="true"><%= @review %></i></li>
       <% if @current_user %>
         <li><%= link_to "投稿を編集する", "/posts/#{@post.id}/edit" %></li>
       <% end %>

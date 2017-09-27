@@ -3,31 +3,10 @@
 <source src="/bg-movie.webm" type="video/webm">
 </video> -->
 
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#tab-menu li').on('click', function(){
-       if($(this).not('active')){
-         // タブメニュー
-         $(this).addClass('active').siblings('li').removeClass('active');
-         // タブの中身
-         var index = $('#tab-menu li').index(this);
-         $('#tab-box div').eq(index).addClass('active').siblings('div').removeClass('active');
-       }
-    });
-});
-</script>
-
 <div class="main top-main">
   <div class="top-message">
     <h3>ひとりの時間を、楽しもう</h3>
     <p>Hitripで探そう</p>
     <%= render "form" %>
-    <div id="modal-content">
-      <h3 style="color:#626063">Yukuate (ユクアテ) とは</h3>
-      <p>おひとりさまでも楽しめるイベントやスポットの総称です。</br>
-         お気に入りのYukuateを投稿して、みんなにも教えてあげよう。</p></br>
-      <p><a id="modal-close" class="button-link">閉じる</a></p>
-    </div>
-
   </div>
 </div>
