@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :authenticate_user, {only: [:new, :create, :destroy]}
+  before_action :average_review, {only: [:show]}
 
   def index
     # すべての投稿を取得する
@@ -29,13 +30,6 @@ class PostsController < ApplicationController
     @bookmark = Bookmark.find_by(user_id: @current_user.id)
     @comments = Comment.where(post_id: params[:id])
     @comment_user = User.joins("INNER JOIN comments ON comments.user_id = users.id").where("comments.post_id = ?", @post.id)
-    @sum = Evaluation.where(post_id: @post.id).sum(:review)
-    @count = Evaluation.where(post_id: @post.id).count(:review)
-    if @count == 0
-      @review = "まだレビューはありません。レビューしてみよう。"
-    else
-      @review = @sum / @count.to_f.round(1)
-    end
   end
 
   def new
