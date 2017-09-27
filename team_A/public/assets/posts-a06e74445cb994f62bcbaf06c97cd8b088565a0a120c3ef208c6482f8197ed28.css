@@ -1,0 +1,138 @@
+/* posts/index ================================ */
+/* line 7, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.posts-index-item {
+  padding: 20px;
+  background-color: white;
+  overflow: hidden;
+  border-bottom: 1px solid #d3d6dd;
+}
+
+/* line 14, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.posts-index-item a {
+  color: #979499;
+  font-size: 18px;
+}
+
+/* line 19, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.posts-index-item a:hover {
+  color: #626063;
+  font-size: 18px;
+}
+
+/* line 24, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.post-left img {
+  width: 100px;
+  height: 100px;
+  border-radius: 40%;
+  object-fit: cover;
+}
+
+/* line 31, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.post-user-name a {
+  font-weight: 600;
+}
+
+/* line 35, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.post-user-name a:hover {
+  color: #e8ece9;
+}
+
+/* line 39, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.post-left {
+  float: left;
+  width: 10%;
+}
+
+/* line 44, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.post-right {
+  float: left;
+  width: 90%;
+  padding-left: 25px;
+  text-align: left;
+}
+
+/* line 51, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.posts-img img {
+  width: 180px;
+  height: 180px;
+  border-radius: 40%;
+  margin: 20px 0 10px;
+  object-fit: cover;
+}
+
+/* line 59, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.col-3 {
+  width: 33.3%;
+  height: 400px;
+  float: left;
+}
+
+/* posts/show ================================ */
+/* line 66, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.posts-show form {
+  display: inline;
+  margin: 30px;
+}
+
+/* line 71, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.posts-show-item {
+  max-width: 800px;
+  padding: 30px;
+  background-color: white;
+  overflow: hidden;
+  border-bottom: 1px solid #d3d6dd;
+}
+
+/* line 79, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.posts-show-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 30%;
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+/* line 87, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.posts-show-item .post-user-name a {
+  vertical-align: middle;
+  font-size: 24px;
+  margin-left: 15px;
+}
+
+/* line 93, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.posts-show-item p {
+  font-size: 18px;
+  margin: 20px 0;
+  color: black;
+}
+
+/* line 99, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.post-time {
+  color: #8899a6;
+  margin-bottom: 10px;
+}
+
+/* line 104, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.post-menus {
+  float: right;
+}
+
+/* line 108, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.post-menus a, .post-menus input {
+  color: #8899a6;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* line 114, C:/Users/s.nozaki/git_remote/team_A/app/assets/stylesheets/posts.scss */
+.return-btn {
+  margin: auto;
+  max-width: 80%;
+  padding: 10px;
+  background-color: #202f55;
+  border-radius: 4px;
+  color: #fafdff;
+  text-align: center;
+}
+
+/* posts/new ================================ */
