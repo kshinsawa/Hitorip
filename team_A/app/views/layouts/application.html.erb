@@ -8,69 +8,55 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
   </head>
 
-  <script>
-  $(function () {
-    var $body = $('body');
-    $('#js__sideMenuBtn').on('click', function () {
-      $body.toggleClass('side-open');
-      $('#js__overlay').on('click', function () {
-        $body.removeClass('side-open');
-      });
-    });
-  });
-  </script>
-
   <body>
-    <header>
-      <div class="header-logo">
-        <!-- <a href="/home/top">ひとりっぷ</a> -->
-        <%= link_to("Hitrip", "/") %>
+    <script>
+    //マウスオーバーで表示
+    $(function() {
+          $('#slideR').hover(
+          function(){
+            $(this).animate({'marginRight':'240px'},500);
+          },
+          function () {
+            $(this).animate({'marginRight':'0'},500);
+          }
+        );
+    });
+    </script>
+
+      <div id="slideR" class="off">
+          <div class="slide-inner">
+            <ul class="header-menus">
+              <li class="header-logo">
+                <%= link_to("Hitrip", "/") %>
+              </li>
+              <li>
+                <%= link_to "Hitripとは", about_path %>
+              </li>
+              <% if @current_user %>
+              <li>
+              <%= link_to("タイムライン", "/posts/index") %>
+              </li>
+              <li>
+                <!-- <a href="/posts/new"></a> -->
+                <%= link_to("Yukuateを投稿", "/posts/new") %>
+              </li>
+              <li>
+                <%= link_to @current_user.user_name, "/user/#{@current_user.id}" %>
+              </li>
+              <li>
+                <%= link_to('ログアウト', "/logout", {method: :post}) %>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to('新規登録', '/user/new') %>
+              </li>
+              <li >
+                <%= link_to 'ログイン', '/user/login_form' %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
       </div>
-      <ul class="header-menus">
-        <li>
-        </li>
-        <% if @current_user %>
-        <li>
-        <%= link_to("タイムライン", "/posts/index") %>
-        </li>
-        <li>
-          <!-- <a href="/posts/new"></a> -->
-          <%= link_to("Yukuateを投稿する", "/posts/new") %>
-        </li>
-        <li>
-          <%= link_to @current_user.user_name, "/user/#{@current_user.id}" %>
-        </li>
-        <li>
-          <%= link_to('ログアウト', "/logout", {method: :post}) %>
-        </li>
-        <% else %>
-        <li>
-          <%= link_to "Hitripとは", about_path %>
-        </li>
-        <li>
-          <%= link_to('新規登録', '/user/new') %>
-        </li>
-        <li >
-          <%= link_to 'ログイン', '/user/login_form' %>
-        </li>
-        <% end %>
-      </ul>
-
-      </header>
-
-  <!-- サイドオープン時メインコンテンツを覆う -->
-      <!--<div class="overlay" id="js__overlay"></div>-->
-      <!-- サイドメニュー -->
-      <!--<nav class="side-menu">
-      <ul>
-        <li><a href="#">メニュータイトル</a></li>
-        <li><a href="#">メニュータイトル</a></li>
-        <li><a href="#">メニュータイトル</a></li>
-      </ul>
-    </nav>-->
-      <!-- 開閉用ボタン -->
-      <!--<div class="side-menu-btn" id="js__sideMenuBtn"></div>-->
-
 
     <% if flash[:notice] %>
       <div class="flash">

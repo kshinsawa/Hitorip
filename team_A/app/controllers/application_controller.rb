@@ -27,4 +27,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def average_review
+    @post = Post.find_by(id: params[:id])
+    @sum = Evaluation.where(post_id: @post.id).sum(:review)
+    @count = Evaluation.where(post_id: @post.id).count(:review)
+    if @count == 0
+      @review = "まだレビューはありません。レビューしてみよう。"
+    else
+      @review = @sum / @count.to_f.round(1)
+    end
+  end
+
 end
