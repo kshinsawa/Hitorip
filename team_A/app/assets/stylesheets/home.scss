@@ -335,9 +335,13 @@ z-index:-1;
   cursor: pointer;
   position: fixed;
   right: -220px;
-  background: #6c9bd2;
   width: 300px;
   font-size: 18px;
   display:block;
   height:100%;
+}
+#slideR .slide-inner {
+  overflow: auto;
+  overflow-x: hidden;
+  background: #6c9bd2;
 }
