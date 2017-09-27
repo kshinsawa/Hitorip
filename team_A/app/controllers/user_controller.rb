@@ -23,11 +23,13 @@ class UserController < ApplicationController
       @user.image_name = "#{@user.user_name}.jpg"
       image = params[:image]
       File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    else
+      @user.image_name ="default_image.jpg"
     end
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Hitripへようこそ！"
-      redirect_to("/home/top")
+      redirect_to("/")
     else
       render (new_user_path)
     end
