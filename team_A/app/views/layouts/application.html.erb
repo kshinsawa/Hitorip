@@ -14,11 +14,19 @@
     $(function() {
         $('#slideR').on('click',function(){
           if ($('#slideR').hasClass('off')){
+          //メニューを開く
           $('#slideR').removeClass('off');
           $(this).animate({'marginRight':'220px'},500).addClass('on');
+          //矢印を右向きにする
+          $(".fa-angle-left", "#slideR").removeClass('fa-angle-left');
+          $(".fa", "#slideR").addClass('fa-angle-right');
             }else{
+          //メニューを閉じる
           $('#slideR').addClass('off');
           $(this).animate({'marginRight':'0'},500);
+          //矢印を左向きにする
+          $(".fa-angle-right", "#slideR").removeClass('fa-angle-right');
+          $(".fa", "#slideR").addClass('fa-angle-left');
         }
       });
     });
