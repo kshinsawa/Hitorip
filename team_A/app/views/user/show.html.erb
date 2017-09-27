@@ -33,7 +33,7 @@ $(function(){
 
     <div id="tab-box">
       <div class="user-post-history active">
-          <% if @post.present? %>
+        <% if @post.present? %>
           <% @post.each do |post| %>
           <li><%= link_to post.title, "/posts/#{post.id}" %></li>
           <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>
@@ -45,7 +45,7 @@ $(function(){
       </div>
       <div class = "user-comment-history">
         <% if @comment.present? %>
-        <% @comment.each do |comment| %>
+          <% @comment.each do |comment| %>
           <li><%= link_to comment.content, "/posts/#{comment.post_id}" %></li>
         <% end %>
         <% else %>

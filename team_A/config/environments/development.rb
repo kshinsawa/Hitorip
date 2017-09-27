@@ -39,6 +39,8 @@ Rails.application.configure do
   # Do not compress assets
   config.assets.compress = false
 
+  config.time_zone = 'Tokyo'
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

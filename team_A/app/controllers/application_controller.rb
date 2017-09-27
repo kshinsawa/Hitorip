@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     @sum = Evaluation.where(post_id: @post.id).sum(:review)
     @count = Evaluation.where(post_id: @post.id).count(:review)
     if @count == 0
-      @review = "まだレビューはありません。レビューしてみよう。"
+      @review = "まだレビューはありません。"
     else
       @review = @sum / @count.to_f.round(1)
     end
