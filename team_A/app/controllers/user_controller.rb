@@ -11,7 +11,6 @@ class UserController < ApplicationController
     @post = Post.where(user_id: @user.id)
     @comment = Comment.where(user_id: @user.id)
     @bookmark = Post.joins("INNER JOIN bookmarks ON bookmarks.post_id = posts.id").where("bookmarks.user_id = ?", @user.id)
-    puts @user.image_name
   end
 
   def new
@@ -23,11 +22,12 @@ class UserController < ApplicationController
     if params[:image]
       @user.image_name = "#{@user.user_name}.jpg"
       image = params[:image]
-      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
     end
     if @user.save
       session[:user_id] = @user.id
-      redirect_to("/")
+      flash[:notice] = "Hitripへようこそ！"
+      redirect_to("/home/top")
     else
       render (new_user_path)
     end
@@ -39,15 +39,21 @@ class UserController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.update_attributes(user_params)
+    @user.user_name = params[:user_name]
+    @user.image_name = "#{@user.id}.jpg"
+    @user.email = params[:email]
+    @user.password = params[:password]
     if params[:image]
-      @user.image_name = "#{@user.user_name}.jpg"
-      image = params[:image]
-      File.binwrite("public/user_images/#{@user.image_name}" ,image.read)
-      puts @user.image_name
+      @user.image_name = "#{@user.id}.jpg"
+      image2 = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}", image2.read)
     end
-    flash[:notice] = "編集しました"
-    redirect_to user_path
+    if @user.save
+      flash[:notice] = "編集しました"
+      redirect_to user_path
+    else
+      render (edit_user_path)
+    end
   end
 
   def login_form
