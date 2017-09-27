@@ -14,10 +14,12 @@
     $(function() {
           $('#slideR').hover(
           function(){
-            $(this).animate({'marginRight':'240px'},500);
+            $(this).animate({'marginRight':'220px'},500);
+
           },
           function () {
             $(this).animate({'marginRight':'0'},500);
+
           }
         );
     });
@@ -25,10 +27,12 @@
 
       <div id="slideR" class="off">
           <div class="slide-inner">
+            <i class="fa fa-angle-left fa-3x" aria-hidden="true"></i>
+            
+            <li class="header-logo">
+              <%= link_to("Hitrip", "/") %>
+            </li>
             <ul class="header-menus">
-              <li class="header-logo">
-                <%= link_to("Hitrip", "/") %>
-              </li>
               <li>
                 <%= link_to "Hitripとは", about_path %>
               </li>
