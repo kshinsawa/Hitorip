@@ -1,75 +1,79 @@
 <%= form_tag("/posts/index", method: "get") do%>
-<form class="navbar-form navbar-center" role="search">
-  <div class="form-group">
-    <input type="date" name="date" class="form-control">
-    <select name="place" class="form-control">
-      <option value="">エリアを選ぶ</option>
-      <optgroup label="都心エリア">
-        <option value="千代田区">千代田区</option>
-        <option value="中央区">中央区</option>
-        <option value="港区">港区</option>
-      </optgroup>
-      <optgroup label="城東エリア">
-        <option value="江東区">江東区</option>
-        <option value="墨田区">墨田区</option>
-        <option value="葛飾区">葛飾区</option>
-        <option value="江戸川区">江戸川区</option>
-      </optgroup>
-      <optgroup label="上野エリア">
-        <option value="台東区">台東区</option>
-        <option value="荒川区">荒川区</option>
-        <option value="足立区">足立区</option>
-      </optgroup>
-      <optgroup label="池袋エリア">
-        <option value="豊島区">豊島区</option>
-        <option value="文京区">文京区</option>
-        <option value="北区">北区</option>
-        <option value="板橋区">板橋区</option>
-        <option value="練馬区">練馬区</option>
-      </optgroup>
-      <optgroup label="新宿エリア">
-        <option value="新宿区">新宿区</option>
-        <option value="中野区">中野区</option>
-        <option value="杉並区">杉並区</option>
-      </optgroup>
-      <optgroup label="渋谷エリア">
-        <option value="渋谷区">渋谷区</option>
-        <option value="世田谷区">世田谷区</option>
-        <option value="目黒区">目黒区</option>
-      </optgroup>
-      <optgroup label="品川エリア">
-        <option value="大田区">大田区</option>
-        <option value="品川区">品川区</option>
-      </optgroup>
-    </select>
-    <select name="category" class="form-control">
-      <option value="">楽しみ方で選ぶ</option>
-      <optgroup label="見る">
-        <option value="映画">映画</option>
-        <option value="舞台/演劇">舞台/演劇</option>
-        <option value="展示会">展示会</option>
-        <option value="博物展">博物展</option>
-        <option value="美術展">美術展</option>
-      </optgroup>
-      <optgroup label="聴く">
-        <option value="ライブ/コンサート">ライブ/コンサート</option>
-        <option value="フェス">フェス</option>
-      </optgroup>
-      <optgroup label="触れる">
-        <option value="雑貨屋">雑貨屋</option>
-      </optgroup>
-      <optgroup label="味わう">
-        <option value="カフェ">カフェ</option>
-      </optgroup>
-      <optgroup label="体験する">
-      </optgroup>
-        <option value="その他">その他</option>
-    </select>
-    <input type="text" name="content" class="form-control" placeholder="フリーワード">
+<div class="container">
+  <div class="row">
+    <form class="navbar-form navbar-center" role="search">
+      <div class="form-group">
+        <input type="date" name="date" class="form-control col-sm-2">
+        <select name="place" class="form-control col-sm-4">
+          <option value="">エリアを選ぶ</option>
+          <optgroup label="都心エリア">
+            <option value="千代田区">千代田区</option>
+            <option value="中央区">中央区</option>
+            <option value="港区">港区</option>
+          </optgroup>
+          <optgroup label="城東エリア">
+            <option value="江東区">江東区</option>
+            <option value="墨田区">墨田区</option>
+            <option value="葛飾区">葛飾区</option>
+            <option value="江戸川区">江戸川区</option>
+          </optgroup>
+          <optgroup label="上野エリア">
+            <option value="台東区">台東区</option>
+            <option value="荒川区">荒川区</option>
+            <option value="足立区">足立区</option>
+          </optgroup>
+          <optgroup label="池袋エリア">
+            <option value="豊島区">豊島区</option>
+            <option value="文京区">文京区</option>
+            <option value="北区">北区</option>
+            <option value="板橋区">板橋区</option>
+            <option value="練馬区">練馬区</option>
+          </optgroup>
+          <optgroup label="新宿エリア">
+            <option value="新宿区">新宿区</option>
+            <option value="中野区">中野区</option>
+            <option value="杉並区">杉並区</option>
+          </optgroup>
+          <optgroup label="渋谷エリア">
+            <option value="渋谷区">渋谷区</option>
+            <option value="世田谷区">世田谷区</option>
+            <option value="目黒区">目黒区</option>
+          </optgroup>
+          <optgroup label="品川エリア">
+            <option value="大田区">大田区</option>
+            <option value="品川区">品川区</option>
+          </optgroup>
+        </select>
+        <select name="category" class="form-control col-sm-3">
+          <option value="">楽しみ方で選ぶ</option>
+          <optgroup label="見る">
+            <option value="映画">映画</option>
+            <option value="舞台/演劇">舞台/演劇</option>
+            <option value="展示会">展示会</option>
+            <option value="博物展">博物展</option>
+            <option value="美術展">美術展</option>
+          </optgroup>
+          <optgroup label="聴く">
+            <option value="ライブ/コンサート">ライブ/コンサート</option>
+            <option value="フェス">フェス</option>
+          </optgroup>
+          <optgroup label="触れる">
+            <option value="雑貨屋">雑貨屋</option>
+          </optgroup>
+          <optgroup label="味わう">
+            <option value="カフェ">カフェ</option>
+          </optgroup>
+          <optgroup label="体験する">
+          </optgroup>
+            <option value="その他">その他</option>
+        </select>
+        <input type="text" name="content" class="form-control col-sm-3" placeholder="フリーワード">
+      </div>
+      <button type="submit" class="btn user-edit-btn">Yukuateを探す？
+        <!-- 検索アイコン -->
+        <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+      </button>
+    </form>
+    <% end %>
   </div>
-  <button type="submit" class="btn user-edit-btn">Yukuateを探す？
-    <!-- 検索アイコン -->
-    <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
-  </button>
-</form>
-<% end %>
+</div>

@@ -2,6 +2,7 @@
   <div class="container">
     <% if @posts.present? %>
     <% @posts.each do |post| %>
+
       <div class="posts-index-item col-3">
         <div class="posts-img">
           <%= link_to image_tag("/posts_images/#{post.image_name}"), "/posts/#{post.id}" %>
@@ -11,6 +12,7 @@
         <li><i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %></li>
         <li><i class="fa fa-tag" aria-hidden="true"></i><%= post.category %></li>
       </div>
+
         <% end %>
       <% else %>
         <h1>検索条件と一致する投稿はありません。</h1>
