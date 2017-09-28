@@ -25,11 +25,16 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
-    @user = User.find_by(id: @post.user_id)
-    @bookmark = Bookmark.find_by(user_id: @current_user.id)
-    @comments = Comment.where(post_id: params[:id])
-    @comment_user = User.joins("INNER JOIN comments ON comments.user_id = users.id").where("comments.post_id = ?", @post.id)
+    if @current_user
+      @post = Post.find_by(id: params[:id])
+      @user = User.find_by(id: @post.user_id)
+      @bookmark = Bookmark.find_by(user_id: @current_user.id)
+      @comments = Comment.where(post_id: params[:id])
+      @comment_user = User.joins("INNER JOIN comments ON comments.user_id = users.id").where("comments.post_id = ?", @post.id)
+    else
+      flash[:notice] = "ログインしてください"
+      redirect_to("/posts/index")
+    end
   end
 
   def new
@@ -46,7 +51,6 @@ class PostsController < ApplicationController
       user_id: session[:user_id],
     )
     if params[:image]
-      # 投稿タイトルは(おそらく)ユニークなので投稿タイトルを画像名とする
       @post.image_name = "#{@post.title}.jpg"
       image = params[:image]
       File.binwrite("public/posts_images/#{@post.image_name}", image.read)
