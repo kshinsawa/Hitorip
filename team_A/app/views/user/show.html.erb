@@ -35,7 +35,7 @@ $(function(){
     </ul>
 
     <div id="tab-box">
-      <div class="col-sm-4">
+
         <div class="user-post-history active">
             <% if @post != nil %>
             <% @post.each do |post| %>
@@ -47,15 +47,16 @@ $(function(){
             <p>まだ投稿がありません。Yukuateを投稿しよう。</p>
           <% end %>
         </div>
-      </div>
-      <div class="col-sm-4">
+
+
         <div class = "user-comment-history">
-          <% @comment.each do |comment| %>
-            <li><%= link_to comment.content, "/posts/#{comment.post_id}" %></li>
+          <% @comment_post.each do |comment_post| %>
+            <li><%= link_to comment_post.title, "/posts/#{comment_post.id}" %></li>
+            <i class="fa fa-map-marker" aria-hidden="true"></i><%= comment_post.place %></br>
+            <i class="fa fa-calendar" aria-hidden="true"></i><%= comment_post.date %>
           <% end %>
         </div>
-      </div>
-      <div class="col-sm-4">
+
         <div class = "user-bookmark-history">
           <% if @bookmark %>
             <% @bookmark.each do |bookmark|  %>
@@ -67,7 +68,6 @@ $(function(){
             <%= puts "まだブックマークはありません。" %>
           <% end %>
         </div>
-      </div>
     </div>
   </div>
  </div>
