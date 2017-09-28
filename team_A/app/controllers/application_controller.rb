@@ -9,13 +9,15 @@ class ApplicationController < ActionController::Base
     @current_user = User.find_by(id: session[:user_id])
   end
 
+# エラー回避、投稿用
   def authenticate_user
     if @current_user == nil
       flash[:notice] = "ログインしてください"
-      redirect_to home_top_path
+      redirect_to ("/")
     end
   end
 
+# 重複回避
   def user_registering_regulation
     @user = User.find_by(
       user_name: params[:user_name],

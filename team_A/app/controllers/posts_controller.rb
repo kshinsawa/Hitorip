@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :authenticate_user, {only: [:new, :create, :destroy]}
+  before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
   before_action :average_review, {only: [:show]}
 
   def index

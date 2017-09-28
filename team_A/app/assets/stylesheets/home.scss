@@ -27,6 +27,7 @@ a {
 
 a:hover{
   color: #626063;
+  text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -96,12 +97,12 @@ body {
   color: #fff;
   font-size: 22px;
   margin-left: 60px;
-
 }
 
 .header-logo a:hover{
   color: #ccb4c1;
   font-size: 22px;
+  text-decoration: none;
 }
 
 .header-menus {
@@ -128,6 +129,7 @@ body {
 .header-menus a:hover {
   font-size: 18px;
   color: #ccb4c1;
+  text-decoration: none;
 }
 
 
@@ -186,8 +188,8 @@ body {
 /* about ================================ */
 #background-image img{
   position: fixed;
-  max-width: 1200px;
-  max-height: 800px;
+  max-width: 2000px;
+  max-height: 1200px;
   z-index: -1;
   opacity: 0.75;
 }
@@ -309,11 +311,9 @@ body {
   text-align: center;
   position: absolute;
   top: 64px;
-  z-index: 10;
-  border-radius: 4px;
+  z-index: 999;
   font-size: 14px;
-  // margin:0 auto;
-  height:auto;
+  width:100%;
   line-height: 64px;
 }
 

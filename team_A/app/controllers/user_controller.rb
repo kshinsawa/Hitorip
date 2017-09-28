@@ -2,20 +2,28 @@ class UserController < ApplicationController
 
   before_action :user_registering_regulation, {only: [:new, :create]}
 
-
   def home
   end
 
   def show
-    @user = User.find_by(id: params[:id])
-    @post = Post.where(user_id: @user.id)
-    @comment = Comment.where(user_id: @user.id)
-    @comment_post = Post.joins("INNER JOIN comments ON posts.id = comments.post_id").where("comments.user_id = ?", @user.id)
-    @bookmark = Post.joins("INNER JOIN bookmarks ON bookmarks.post_id = posts.id").where("bookmarks.user_id = ?", @user.id)
+    if @current_user
+      @user = User.find_by(id: params[:id])
+      @post = Post.where(user_id: @user.id)
+      @comment = Comment.where(user_id: @user.id)
+      @comment_post = Post.joins("INNER JOIN comments ON posts.id = comments.post_id").where("comments.user_id = ?", @user.id)
+      @bookmark = Post.joins("INNER JOIN bookmarks ON bookmarks.post_id = posts.id").where("bookmarks.user_id = ?", @user.id)
+    else
+      flash[:notice] = "ログインしてください"
+      redirect_to ("/posts/index")
+    end
   end
 
   def new
     @user = User.new
+    if @current_user
+      flash[:notice] = "既に登録しています。"
+      redirect_to ("/")
+    end
   end
 
   def create
@@ -38,6 +46,10 @@ class UserController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
+    if @current_user == nil
+      flash[:notice] = "権限がありません"
+      redirect_to ("/user/#{@user.id}")
+    end
   end
 
   def update
