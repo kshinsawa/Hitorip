@@ -40,7 +40,8 @@ Rails.application.configure do
   config.assets.compress = false
 
   config.time_zone = 'Tokyo'
-
+  
+  config.assets.precompile += %w(bootstrap.min.css)
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
