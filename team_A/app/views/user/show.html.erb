@@ -23,7 +23,7 @@ $(function(){
         <img src="<%= "/user_images/#{@user.image_name}" %>">
       <% else %>
         <img src = "../no_image_default.jpg">
-      <% end %>   
+      <% end %>
     </div>
     <% if @current_user.id == @user.id %>
       <div class = "btn user-edit-btn"><%= link_to("編集する", "/user/#{@user.id}/edit") %></div>
@@ -35,40 +35,39 @@ $(function(){
     </ul>
 
     <div id="tab-box">
-      <div class="user-post-history active">
-        <% if @post.present? %>
-          <% @post.each do |post| %>
-          <li><%= link_to post.title, "/posts/#{post.id}" %></li>
-          <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>
-          <i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %>
+      <div class="col-sm-4">
+        <div class="user-post-history active">
+            <% if @post != nil %>
+            <% @post.each do |post| %>
+            <li><%= link_to post.title, "/posts/#{post.id}" %></li>
+            <i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></br>
+            <i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %>
+            <% end %>
+          <% else %>
+            <p>まだ投稿がありません。Yukuateを投稿しよう。</p>
           <% end %>
-        <% else %>
-          <p>まだ投稿がありません。Yukuateを投稿しよう。</p>
-        <% end %>
+        </div>
       </div>
-      <div class = "user-comment-history">
-        <% if @comment.present? %>
-          <% @comment_post.each do |comment_post| %>
-            <li><%= link_to comment_post.title, "/posts/#{comment_post.id}" %></li>
-            <i class="fa fa-map-marker" aria-hidden="true"></i><%= comment_post.place %></br>
-            <i class="fa fa-calendar" aria-hidden="true"></i><%= comment_post.date %>
+      <div class="col-sm-4">
+        <div class = "user-comment-history">
+          <% @comment.each do |comment| %>
+            <li><%= link_to comment.content, "/posts/#{comment.post_id}" %></li>
           <% end %>
-        <% else %>
-          <p>コメントはまだありません。</p>
-        <% end %>
+        </div>
       </div>
-      <div class = "user-bookmark-history">
-        <% if @bookmark.present? %>
-          <% @bookmark.each do |bookmark|  %>
-          <%= link_to bookmark.title, "/posts/#{bookmark.id}" %></br>
-          <i class="fa fa-map-marker" aria-hidden="true"></i><%= bookmark.place %></br>
-          <i class="fa fa-calendar" aria-hidden="true"></i><%= bookmark.date %>
+      <div class="col-sm-4">
+        <div class = "user-bookmark-history">
+          <% if @bookmark %>
+            <% @bookmark.each do |bookmark|  %>
+            <%= link_to bookmark.title, "/posts/#{bookmark.id}" %></br>
+            <i class="fa fa-map-marker" aria-hidden="true"></i><%= bookmark.place %></br>
+            <i class="fa fa-calendar" aria-hidden="true"></i><%= bookmark.date %>
+            <% end %>
+          <% else %>
+            <%= puts "まだブックマークはありません。" %>
           <% end %>
-        <% else %>
-          <p>ブックマークはまだありません。</p>
-        <% end %>
+        </div>
       </div>
-  </div>
-
+    </div>
   </div>
  </div>
