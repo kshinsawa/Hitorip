@@ -31,14 +31,14 @@
     <%= form_tag("/posts/#{@post.id}/evaluation", method: "post") do%>
       <div class="form">
         <div class="form-body">
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <select name="review" class="form-control">
+          <input type="submit" value="レビューする" >
+          <select name="review" class="form-control" style="width: 100px; float; left;">
             <option value="">--</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value="1">☆☆☆☆★</option>
+            <option value="2">☆☆☆★★</option>
+            <option value="3">☆☆★★★</option>
+            <option value="4">☆★★★★</option>
+            <option value="5">★★★★★</option>
           </select>
           <input type="submit" value="レビューする" >
         </div>
@@ -60,7 +60,7 @@
     <%= form_tag("/comment/#{@post.id}/create") do %>
       <div class="form">
         <div class="form-body">
-          <input type="text" name="content" placeholder="コメント内容" class="form-control">
+          <input type="text" name="content" placeholder="コメント内容" class="form-control" style="width: 600px; float: left">
           <input type="submit" value="コメント" >
         </div>
       </div>

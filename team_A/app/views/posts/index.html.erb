@@ -1,20 +1,22 @@
 <div class="main posts-index">
   <div class="container">
     <% if @posts.present? %>
-    <% @posts.each do |post| %>
-      <div class="posts-index-item col-3">
-        <div class="posts-img">
-          <%= link_to image_tag("/posts_images/#{post.image_name}"), "/posts/#{post.id}" %>
+      <% @posts.each do |post| %>
+        <div class="col-sm-4">
+          <div class="posts-index-item">
+            <div class="posts-img">
+              <%= link_to image_tag("/posts_images/#{post.image_name}"), "/posts/#{post.id}" %>
+            </div>
+              <%= link_to post.title, "/posts/#{post.id}" %></br>
+              <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></li>
+              <li><i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %></li>
+              <li><i class="fa fa-tag" aria-hidden="true"></i><%= post.category %></li>
+          </div>
         </div>
-        <%= link_to post.title, "/posts/#{post.id}" %></br>
-        <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= post.place %></li>
-        <li><i class="fa fa-calendar" aria-hidden="true"></i><%= post.date %></li>
-        <li><i class="fa fa-tag" aria-hidden="true"></i><%= post.category %></li>
-      </div>
-        <% end %>
-      <% else %>
-        <h1>検索条件と一致する投稿はありません。</h1>
-        <%= link_to "ホームへ戻る", "/" %>
       <% end %>
+    <% else %>
+      <h1>検索条件と一致する投稿はありません。</h1>
+        <%= link_to "ホームへ戻る", "/" %>
+    <% end %>
   </div>
 </div>
