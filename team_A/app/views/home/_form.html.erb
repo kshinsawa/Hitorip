@@ -1,38 +1,46 @@
 <%= form_tag("/posts/index", method: "get") do%>
 <div class="container">
-  <div class="row">
-    <form class="navbar-form navbar-center" role="search">
-      <div class="form-group">
-        <div class="col-sm-12">
+  <form class="navbar-form navbar-center" role="search">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
           <select name="category" class="form-control">
-            <option value="">カテゴリで選ぶ</option>
-            <optgroup label="見る">
+            <option value="">カテゴリ</option>
+            <optgroup label="見にいく">
               <option value="映画">映画</option>
-              <option value="舞台/演劇">舞台/演劇</option>
-              <option value="展示会">展示会</option>
-              <option value="博物展">博物展</option>
-              <option value="美術展">美術展</option>
-            </optgroup>
-            <optgroup label="聴く">
               <option value="ライブ/コンサート">ライブ/コンサート</option>
-              <option value="フェス">フェス</option>
+              <option value="展示会">展示会</option>
+              <option value="美術館/博物館">美術館/博物館</option>
             </optgroup>
-            <optgroup label="触れる">
-              <option value="雑貨屋">雑貨屋</option>
+            <optgroup label="ぶらぶらする">
+              <option value="街並み">街並み</option>
+              <option value="動物園/水族館">動物園/水族館</option>
+              <option value="ショッピング">ショッピング</option>
             </optgroup>
-            <optgroup label="味わう">
+            <optgroup label="食を堪能する">
+              <option value="ごはん">ごはん</option>
+              <option value="スイーツ">スイーツ</option>
+            </optgroup>
+            <optgroup label="癒される">
               <option value="カフェ">カフェ</option>
+              <option value="パワースポット">パワースポット</option>
+              <option value="公園/広場">公園/広場</option>
             </optgroup>
-            <optgroup label="体験する">
+            <optgroup label="雰囲気を味わう">
+              <option value="雑貨屋">雑貨屋</option>
+              <option value="イベント">イベント</option>
+              <option value="バー">バー</option>
             </optgroup>
               <option value="その他">その他</option>
           </select>
           <p></p>
         </div>
-        <div class="col-sm-4">
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
           <input type="date" name="date" class="form-control">
         </div>
-        <div class="col-sm-4">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
           <select name="place" class="form-control" >
             <option value="">エリアを選ぶ</option>
             <optgroup label="都心エリア">
@@ -74,14 +82,25 @@
             </optgroup>
           </select>
         </div>
+<<<<<<< HEAD
         <div class="col-sm-4">
           <input type="text" name="content" class="form-control" placeholder="例: カフェ　ケーキ">
+=======
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <input type="text" name="content" class="form-control" placeholder="フリーワード">
+>>>>>>> f30a3b19a3968c437ed41746ea70a9baadb0e917
         </div>
-
       </div>
+<<<<<<< HEAD
       <button type="submit" class="btn user-edit-btn">検索する
       </button>
     </form>
     <% end %>
+=======
+        <button type="submit" class="btn user-edit-btn">Yukuateを探す？
+        </button>
+      </form>
+    </div>
+>>>>>>> f30a3b19a3968c437ed41746ea70a9baadb0e917
   </div>
-</div>
+<% end %>
