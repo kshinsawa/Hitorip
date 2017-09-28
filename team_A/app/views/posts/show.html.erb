@@ -6,7 +6,7 @@
       </div>
       <div class="content">
         <h5><%= @post.title %></h5>
-        <p><%= @post.content %></p>
+        <p><%= simple_format(@post.content) %></p>
         <p><%= link_to @user.user_name, "/user/#{@user.id}" %></p>
       </div>
     </div>
