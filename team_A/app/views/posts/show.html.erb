@@ -6,11 +6,11 @@
           <img src="<%= "/posts_images/#{@post.image_name}" %>">
         <% else %>
           <img src = "../no_image_default.jpg">
-        <% end %>    
+        <% end %>
       </div>
       <div class="content">
         <h5><%= @post.title %></h5>
-        <p><%= @post.content %></p>
+        <p><%= simple_format(@post.content) %></p>
         <p><%= link_to @user.user_name, "/user/#{@user.id}" %></p>
       </div>
     </div>
@@ -44,7 +44,6 @@
             <option value="4">☆★★★★</option>
             <option value="5">★★★★★</option>
           </select>
-          <input type="submit" value="レビューする" >
         </div>
       </div>
     <% end %>

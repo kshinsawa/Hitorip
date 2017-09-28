@@ -41,14 +41,8 @@ class Post < ActiveRecord::Base
     if title.blank?
       errors[:base] << "タイトルを入力して下さい"
     end
-    if image_name.blank?
-      errors[:base] << "画像を選択して下さい"
-    end
     if content.blank?
       errors[:base] << "詳細を入力を入力して下さい"
-    end
-    if date.blank?
-      errors[:base] << "日付を選択して下さい"
     end
     if place.blank?
       errors[:base] << "場所を選択して下さい"
