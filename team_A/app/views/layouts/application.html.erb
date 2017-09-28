@@ -5,6 +5,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, :debug => true%>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true, :debug => true %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
   </head>
 
@@ -82,5 +83,7 @@
     <% end %>
       <%= yield %>
 
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     </body>
 </html>
