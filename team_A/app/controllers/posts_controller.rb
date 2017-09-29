@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
 
-  before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy]}
+  before_action :authenticate_user, {only: [:new, :create, :edit, :update]}
   before_action :average_review, {only: [:show]}
+
+
 
   def index
     # すべての投稿を取得する
@@ -66,11 +68,6 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find_by(id: params[:id])
     @user = User.joins("INNER JOIN posts ON posts.user_id = users.id").where("posts.user_id = ?", @post.user_id)
-    puts @current_user.id
-    if @current_user.id != @post.id
-      flash[:notice] = "権限がありません"
-      redirect_to ("/")
-    end
   end
 
   def update
