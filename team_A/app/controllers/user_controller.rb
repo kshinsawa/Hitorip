@@ -49,6 +49,9 @@ class UserController < ApplicationController
     if @current_user == nil
       flash[:notice] = "権限がありません"
       redirect_to ("/user/#{@user.id}")
+    elsif @current_user != @user.id
+      flash[:notice] = "権限がありません"
+      redirect_to ("/user/#{@user.id}")
     end
   end
 

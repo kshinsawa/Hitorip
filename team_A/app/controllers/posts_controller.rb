@@ -65,6 +65,11 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by(id: params[:id])
+    @user = User.joins("INNER JOIN posts ON posts.user_id = users.id").where("posts.user_id = ?", @current_user.id)
+    if @current_user != @user
+      flash[:notice] = "権限がありません"
+      redirect_to ("/")
+    end
   end
 
   def update
